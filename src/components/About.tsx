@@ -83,7 +83,8 @@ export function About() {
             </p>
             <p className="text-gray-600 leading-relaxed">
               {t('about.story.paragraph2.prefix')}{' '}
-              <span className="text-[#1A237E]">{t('about.story.paragraph2.highlightSynergy')}</span>
+              <span className="text-[#1A237E]">{t('about.story.paragraph2.highlightSynergy')}&nbsp;
+              </span>
               {t('about.story.paragraph2.middle')}{' '}
               <span className="text-[#1A237E]">{t('about.story.paragraph2.highlightIntegrity')}</span>{' '}
               {t('about.story.paragraph2.suffix')}
