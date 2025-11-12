@@ -45,8 +45,10 @@ export function ImageWithFallback(props: React.ImgHTMLAttributes<HTMLImageElemen
       style={style}
       loading={loading}
       decoding={decoding}
-      fetchPriority={fetchPriority}
       {...rest}
+      {...(fetchPriority
+        ? ({ fetchpriority: fetchPriority } as Record<string, unknown>)
+        : undefined)}
       onError={handleError}
     />
   )

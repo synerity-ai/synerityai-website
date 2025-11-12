@@ -261,7 +261,11 @@ export function Contact() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ delay: 0.35, duration: 0.45, ease: 'easeOut' }}
             >
-              <motion.button
+              <motion.a
+                href="/Synerity_Capability_Deck_Enterprise.pdf"
+                download
+                target="_blank"
+                rel="noopener"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: 'spring', stiffness: 240, damping: 20 }}
@@ -270,7 +274,7 @@ export function Contact() {
               >
                 <Download size={20} />
                 {t('contact.resources.button')}
-              </motion.button>
+              </motion.a>
             </motion.div>
           </motion.div>
         </div>

@@ -1,28 +1,40 @@
 import { motion } from 'motion/react';
-import { 
-  Code2, 
-  Database, 
-  Cloud, 
-  GitBranch, 
-  Boxes, 
-  Layers,
-  Workflow,
-  Server,
-  FileJson,
-  Zap,
-  Search,
-  Container,
-  Settings,
-  Wrench,
-  BarChart3,
-  Palette,
-  Mail,
-  Laptop,
-  MessageSquare,
-  Hexagon,
-  Triangle,
-  type LucideIcon
-} from 'lucide-react';
+import type { IconType } from 'react-icons';
+import {
+  FaReact,
+  FaAngular,
+  FaPython,
+  FaJava,
+  FaDocker,
+  FaGitAlt,
+  FaNodeJs,
+  FaAws,
+  FaMicrosoft,
+  FaCode,
+  FaFigma,
+} from 'react-icons/fa';
+import { Zap, BarChart3, Wrench } from 'lucide-react';
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiStorybook,
+  SiSpringboot,
+  SiQuarkus,
+  SiGraphql,
+  SiPostgresql,
+  SiMongodb,
+  SiOracle,
+  SiRedis,
+  SiAmazondynamodb,
+  SiElasticsearch,
+  SiTerraform,
+  SiJenkins,
+  SiKubernetes,
+  SiJira,
+  SiPostman,
+  SiNotion,
+} from 'react-icons/si';
 import { useTranslation } from '../i18n';
 
 export function TechStack() {
@@ -30,61 +42,61 @@ export function TechStack() {
 
   const technologies: {
     categoryKey: string;
-    techs: { name: string; icon: LucideIcon; color: string }[];
+    techs: { name: string; icon: IconType; color: string }[];
   }[] = [
     {
       categoryKey: 'tech.categories.frontend.title',
       techs: [
-        { name: 'React', icon: Code2, color: 'from-cyan-500 to-blue-500' },
-        { name: 'Angular', icon: Triangle, color: 'from-red-500 to-pink-500' },
-        { name: 'Next.js', icon: Layers, color: 'from-gray-800 to-gray-900' },
-        { name: 'TypeScript', icon: FileJson, color: 'from-blue-600 to-blue-700' },
-        { name: 'Tailwind CSS', icon: Palette, color: 'from-teal-500 to-cyan-500' },
-        { name: 'Storybook', icon: Code2, color: 'from-purple-500 to-pink-500' },
+        { name: 'React', icon: FaReact, color: 'from-cyan-500 to-blue-500' },
+        { name: 'Angular', icon: FaAngular, color: 'from-red-500 to-pink-500' },
+        { name: 'Next.js', icon: SiNextdotjs, color: 'from-gray-800 to-gray-900' },
+        { name: 'TypeScript', icon: SiTypescript, color: 'from-blue-600 to-blue-700' },
+        { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'from-teal-500 to-cyan-500' },
+        { name: 'Storybook', icon: SiStorybook, color: 'from-purple-500 to-pink-500' },
       ],
     },
     {
       categoryKey: 'tech.categories.backend.title',
       techs: [
-        { name: 'Spring Boot', icon: Server, color: 'from-green-600 to-green-700' },
-        { name: 'Node.js', icon: Hexagon, color: 'from-green-500 to-green-600' },
-        { name: 'Quarkus', icon: Server, color: 'from-blue-500 to-indigo-500' },
-        { name: 'GraphQL', icon: Boxes, color: 'from-pink-500 to-purple-500' },
-        { name: 'Python', icon: Code2, color: 'from-blue-500 to-yellow-500' },
-        { name: 'Java', icon: Server, color: 'from-orange-600 to-red-600' },
+        { name: 'Spring Boot', icon: SiSpringboot, color: 'from-green-600 to-green-700' },
+        { name: 'Node.js', icon: FaNodeJs, color: 'from-green-500 to-green-600' },
+        { name: 'Quarkus', icon: SiQuarkus, color: 'from-blue-500 to-indigo-500' },
+        { name: 'GraphQL', icon: SiGraphql, color: 'from-pink-500 to-purple-500' },
+        { name: 'Python', icon: FaPython, color: 'from-blue-500 to-yellow-500' },
+        { name: 'Java', icon: FaJava, color: 'from-orange-600 to-red-600' },
       ],
     },
     {
       categoryKey: 'tech.categories.database.title',
       techs: [
-        { name: 'PostgreSQL', icon: Database, color: 'from-blue-600 to-blue-700' },
-        { name: 'MongoDB', icon: Database, color: 'from-green-600 to-green-700' },
-        { name: 'Oracle', icon: Database, color: 'from-red-600 to-red-700' },
-        { name: 'Redis', icon: Database, color: 'from-red-500 to-orange-500' },
-        { name: 'DynamoDB', icon: Zap, color: 'from-blue-600 to-indigo-600' },
-        { name: 'ElasticSearch', icon: Search, color: 'from-yellow-500 to-orange-500' },
+        { name: 'PostgreSQL', icon: SiPostgresql, color: 'from-blue-600 to-blue-700' },
+        { name: 'MongoDB', icon: SiMongodb, color: 'from-green-600 to-green-700' },
+        { name: 'Oracle', icon: SiOracle, color: 'from-red-600 to-red-700' },
+        { name: 'Redis', icon: SiRedis, color: 'from-red-500 to-orange-500' },
+        { name: 'DynamoDB', icon: SiAmazondynamodb, color: 'from-blue-600 to-indigo-600' },
+        { name: 'Elasticsearch', icon: SiElasticsearch, color: 'from-yellow-500 to-orange-500' },
       ],
     },
     {
       categoryKey: 'tech.categories.cloud.title',
       techs: [
-        { name: 'AWS', icon: Cloud, color: 'from-orange-500 to-orange-600' },
-        { name: 'Azure', icon: Cloud, color: 'from-blue-500 to-blue-600' },
-        { name: 'Docker', icon: Container, color: 'from-blue-600 to-blue-700' },
-        { name: 'Kubernetes', icon: Hexagon, color: 'from-blue-500 to-indigo-500' },
-        { name: 'Terraform', icon: Boxes, color: 'from-purple-600 to-purple-700' },
-        { name: 'Jenkins', icon: Settings, color: 'from-red-600 to-red-700' },
+        { name: 'AWS', icon: FaAws, color: 'from-orange-500 to-orange-600' },
+        { name: 'Azure', icon: FaMicrosoft, color: 'from-blue-500 to-blue-600' },
+        { name: 'Docker', icon: FaDocker, color: 'from-blue-600 to-blue-700' },
+        { name: 'Kubernetes', icon: SiKubernetes, color: 'from-blue-500 to-indigo-500' },
+        { name: 'Terraform', icon: SiTerraform, color: 'from-purple-600 to-purple-700' },
+        { name: 'Jenkins', icon: SiJenkins, color: 'from-red-600 to-red-700' },
       ],
     },
     {
       categoryKey: 'tech.categories.tools.title',
       techs: [
-        { name: 'Git', icon: GitBranch, color: 'from-orange-600 to-red-600' },
-        { name: 'Jira', icon: BarChart3, color: 'from-blue-600 to-blue-700' },
-        { name: 'Zeplin', icon: Palette, color: 'from-purple-500 to-pink-500' },
-        { name: 'Postman', icon: Mail, color: 'from-orange-500 to-orange-600' },
-        { name: 'VS Code', icon: Laptop, color: 'from-blue-600 to-cyan-600' },
-        { name: 'Notion', icon: MessageSquare, color: 'from-purple-600 to-pink-600' },
+        { name: 'Git', icon: FaGitAlt, color: 'from-orange-600 to-red-600' },
+        { name: 'Jira', icon: SiJira, color: 'from-blue-600 to-blue-700' },
+        { name: 'Figma', icon: FaFigma, color: 'from-purple-500 to-pink-500' },
+        { name: 'Postman', icon: SiPostman, color: 'from-orange-500 to-orange-600' },
+        { name: 'VS Code', icon: FaCode, color: 'from-blue-600 to-cyan-600' },
+        { name: 'Notion', icon: SiNotion, color: 'from-purple-600 to-pink-600' },
       ],
     },
   ];
