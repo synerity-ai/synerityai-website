@@ -37,16 +37,50 @@ export async function submitContactForm(
     ...getMetadata(),
   };
 
-  const response = await fetch(WEBHOOK_URL, {
+  const requestInit: RequestInit & { keepalive?: boolean } = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
+    mode: 'cors',
+    credentials: 'omit',
+    keepalive: true,
+    cache: 'no-store',
     body: JSON.stringify(enrichedPayload),
-  });
+  };
+
+  let response: Response | null = null;
 
   let responseData: unknown;
+
+  try {
+    response = await fetch(WEBHOOK_URL, requestInit);
+
+    const contentType = response.headers.get('Content-Type') ?? '';
+    if (contentType.includes('application/json')) {
+      responseData = await response.json();
+    } else {
+      responseData = await response.text();
+    }
+  } catch (fetchError) {
+    if (typeof navigator !== 'undefined' && typeof navigator.sendBeacon === 'function') {
+      const beaconPayload = new Blob([JSON.stringify(enrichedPayload)], {
+        type: 'application/json',
+      });
+      const beaconSent = navigator.sendBeacon(WEBHOOK_URL, beaconPayload);
+
+      if (beaconSent) {
+        return {
+          ok: true,
+          status: 204,
+          data: undefined,
+        };
+      }
+    }
+
+    throw fetchError;
+  }
 
   try {
     const contentType = response.headers.get('Content-Type') ?? '';
@@ -59,7 +93,7 @@ export async function submitContactForm(
     console.warn('Unable to parse webhook response body', error);
   }
 
-  if (!response.ok) {
+  if (!response?.ok) {
     const error = new Error(
       `Webhook submission failed with status ${response.status}`,
     );
