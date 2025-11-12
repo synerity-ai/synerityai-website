@@ -54,11 +54,6 @@ export function Services() {
     },
   ];
 
-  const handleLearnMore = (serviceTitleKey: string) => {
-    trackCtaClick(`services_${serviceTitleKey}_learn_more`, t('services.cards.learnMore'));
-    scrollToSection('contact', { focusSelector: contactFocusSelector });
-  };
-
   const handlePrimaryCta = () => {
     trackCtaClick('services_primary', t('services.cta.primary'));
     scrollToSection('contact', { focusSelector: contactFocusSelector });
@@ -149,7 +144,7 @@ export function Services() {
                 </div>
 
                 {/* Features List with Enhanced Styling */}
-                <div className="relative px-6 pb-4">
+                <div className="relative px-6 pb-6">
                   <motion.ul
                     role="list"
                     className="space-y-2"
@@ -170,19 +165,6 @@ export function Services() {
                       </motion.li>
                     ))}
                   </motion.ul>
-                </div>
-
-                {/* Learn More Button */}
-                <div className="relative px-6 pb-6 pt-0 border-t border-gray-100">
-                  <motion.button
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.25, ease: 'easeOut' }}
-                    className="flex items-center gap-2 text-sm text-gray-600 group-hover:text-[#1A237E] transition-colors font-medium"
-                    onClick={() => handleLearnMore(service.titleKey)}
-                  >
-                    <span>{t('services.cards.learnMore')}</span>
-                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
-                  </motion.button>
                 </div>
 
                 {/* Bottom Accent Line */}
