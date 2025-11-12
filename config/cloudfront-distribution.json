@@ -1,0 +1,50 @@
+{
+  "CallerReference": "homepage-ui-$(date +%s)",
+  "Comment": "Homepage UI Design static site",
+  "Enabled": true,
+  "Origins": {
+    "Quantity": 1,
+    "Items": [
+      {
+        "Id": "s3-homepage-ui-design",
+        "DomainName": "www.synerityai.com.s3-website.ap-south-1.amazonaws.com",
+        "CustomOriginConfig": {
+          "HTTPPort": 80,
+          "HTTPSPort": 443,
+          "OriginProtocolPolicy": "http-only",
+          "OriginSslProtocols": {
+            "Quantity": 3,
+            "Items": ["TLSv1", "TLSv1.1", "TLSv1.2"]
+          }
+        },
+        "OriginShield": {
+          "Enabled": false
+        }
+      }
+    ]
+  },
+  "DefaultCacheBehavior": {
+    "TargetOriginId": "s3-homepage-ui-design",
+    "ViewerProtocolPolicy": "redirect-to-https",
+    "AllowedMethods": {
+      "Quantity": 2,
+      "Items": ["GET", "HEAD"]
+    },
+    "Compress": true,
+    "DefaultTTL": 86400,
+    "MaxTTL": 31536000,
+    "MinTTL": 0,
+    "ForwardedValues": {
+      "QueryString": false,
+      "Cookies": {
+        "Forward": "none"
+      }
+    }
+  },
+  "PriceClass": "PriceClass_All",
+  "ViewerCertificate": {
+    "CloudFrontDefaultCertificate": true
+  },
+  "HttpVersion": "http2",
+  "IsIPV6Enabled": true
+}
