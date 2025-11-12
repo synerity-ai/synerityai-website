@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin, Send, Download } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from '../i18n';
 import { trackContactSubmission, trackCtaClick } from '../lib/analytics';
+import { submitContactForm } from '../lib/webhook';
 
 export function Contact() {
   const prefersReducedMotion = useReducedMotion();
@@ -14,13 +15,29 @@ export function Contact() {
     company: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Mock form submission
-    alert(t('contact.form.success'));
-    trackContactSubmission('contact_form');
-    setFormData({ name: '', email: '', company: '', message: '' });
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+    setSubmitSuccess(false);
+
+    try {
+      await submitContactForm(formData);
+
+      trackContactSubmission('contact_form');
+      setFormData({ name: '', email: '', company: '', message: '' });
+      setSubmitSuccess(true);
+    } catch (error) {
+      console.error('Webhook submission failed', error);
+      setSubmitError(t('contact.form.error'));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -96,7 +113,7 @@ export function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A237E] focus:border-transparent transition-all"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A237E] focus:border-transparent transition-all"
                   placeholder={t('contact.form.name.placeholder')}
                 />
               </div>
@@ -112,7 +129,7 @@ export function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A237E] focus:border-transparent transition-all"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A237E] focus:border-transparent transition-all"
                   placeholder={t('contact.form.email.placeholder')}
                 />
               </div>
@@ -143,22 +160,33 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A237E] focus:border-transparent transition-all resize-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A237E] focus:border-transparent transition-all resize-none"
                   placeholder={t('contact.form.message.placeholder')}
                 />
               </div>
 
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                 transition={{ type: 'spring', stiffness: 230, damping: 20 }}
-                className="w-full bg-[#1A237E] text-white py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-[#1A237E]/90 transition-colors"
+                className="w-full bg-[#1A237E] text-white py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-[#1A237E]/90 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                disabled={isSubmitting}
               >
-                {t('contact.form.submit')}
+                {isSubmitting ? t('common.loading') : t('contact.form.submit')}
                 <Send size={20} />
               </motion.button>
             </form>
+            {submitSuccess && (
+              <p className="mt-6 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-green-800">
+                {t('contact.form.success')}
+              </p>
+            )}
+            {submitError && (
+              <p className="mt-6 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-800">
+                {submitError}
+              </p>
+            )}
           </motion.div>
 
           {/* Contact Info & Map */}
