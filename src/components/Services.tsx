@@ -2,10 +2,12 @@ import { motion, useReducedMotion } from 'motion/react';
 import { Code, Package, Cloud, Users, Lightbulb, Briefcase, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useTranslation } from '../i18n';
 import { trackCtaClick } from '../lib/analytics';
+import { scrollToSection } from '../lib/dom';
 
 export function Services() {
   const prefersReducedMotion = useReducedMotion();
   const { t } = useTranslation();
+  const contactFocusSelector = 'input[name="name"]';
 
   const services = [
     {
@@ -51,6 +53,21 @@ export function Services() {
       color: 'from-indigo-500 to-indigo-600',
     },
   ];
+
+  const handleLearnMore = (serviceTitleKey: string) => {
+    trackCtaClick(`services_${serviceTitleKey}_learn_more`, t('services.cards.learnMore'));
+    scrollToSection('contact', { focusSelector: contactFocusSelector });
+  };
+
+  const handlePrimaryCta = () => {
+    trackCtaClick('services_primary', t('services.cta.primary'));
+    scrollToSection('contact', { focusSelector: contactFocusSelector });
+  };
+
+  const handleSecondaryCta = () => {
+    trackCtaClick('services_secondary', t('services.cta.secondary'));
+    scrollToSection('portfolio');
+  };
 
   return (
     <section
@@ -161,7 +178,7 @@ export function Services() {
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.25, ease: 'easeOut' }}
                     className="flex items-center gap-2 text-sm text-gray-600 group-hover:text-[#1A237E] transition-colors font-medium"
-                    onClick={() => trackCtaClick(`services_${service.titleKey}_learn_more`, t('services.cards.learnMore'))}
+                    onClick={() => handleLearnMore(service.titleKey)}
                   >
                     <span>{t('services.cards.learnMore')}</span>
                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
@@ -258,7 +275,7 @@ export function Services() {
                   whileTap={{ scale: 0.95 }}
                   className="bg-white text-[#1A237E] px-8 py-4 rounded-lg shadow-xl hover:shadow-2xl transition-all flex items-center justify-center gap-2"
                   transition={{ type: 'spring', stiffness: 220, damping: 20 }}
-                onClick={() => trackCtaClick('services_primary', t('services.cta.primary'))}
+                  onClick={handlePrimaryCta}
                 >
                   {t('services.cta.primary')}
                   <ArrowRight size={20} />
@@ -268,7 +285,7 @@ export function Services() {
                   whileTap={{ scale: 0.95 }}
                   className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-all"
                   transition={{ type: 'spring', stiffness: 220, damping: 20 }}
-                onClick={() => trackCtaClick('services_secondary', t('services.cta.secondary'))}
+                  onClick={handleSecondaryCta}
                 >
                   {t('services.cta.secondary')}
                 </motion.button>

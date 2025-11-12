@@ -3,35 +3,45 @@ import { ExternalLink, ArrowRight } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useTranslation } from '../i18n';
 import { trackCtaClick } from '../lib/analytics';
+import { scrollToSection } from '../lib/dom';
 
 export function Portfolio() {
   const prefersReducedMotion = useReducedMotion();
   const { t } = useTranslation();
+  const contactEmail = t('contact.info.email.value');
+  const contactFocusSelector = 'input[name="name"]';
+
+  const createCaseStudyMailto = (projectTitle: string) => {
+    const subject = encodeURIComponent(`Case Study Inquiry: ${projectTitle}`);
+    const body = encodeURIComponent(
+      'Hi Synerity team,\n\nI would love to learn more about this project and discuss how we could collaborate.\n\nThanks!'
+    );
+    return `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+  };
+
+  const handleStartProject = () => {
+    trackCtaClick('portfolio_more', t('portfolio.more.cta'));
+    scrollToSection('contact', { focusSelector: contactFocusSelector });
+  };
 
   const projects = [
     {
-      titleKey: 'portfolio.projects.nexus.title',
-      categoryKey: 'portfolio.projects.nexus.category',
-      descriptionKey: 'portfolio.projects.nexus.description',
-      outcomesKey: 'portfolio.projects.nexus.outcomes',
-      image: 'https://images.unsplash.com/photo-1531498860502-7c67cf02f657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50JTIwY29kZXxlbnwxfHx8fDE3NjI1NzM0MjF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      tech: ['React', 'Spring Boot', 'PostgreSQL', 'AWS'],
-    },
-    {
-      titleKey: 'portfolio.projects.streamify.title',
-      categoryKey: 'portfolio.projects.streamify.category',
-      descriptionKey: 'portfolio.projects.streamify.description',
-      outcomesKey: 'portfolio.projects.streamify.outcomes',
-      image: 'https://images.unsplash.com/photo-1603985585179-3d71c35a537c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudCUyMHdvcmtzcGFjZXxlbnwxfHx8fDE3NjI1Mzg1Njl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      tech: ['Angular', 'Node.js', 'MongoDB', 'Azure'],
-    },
-    {
-      titleKey: 'portfolio.projects.fincore.title',
-      categoryKey: 'portfolio.projects.fincore.category',
-      descriptionKey: 'portfolio.projects.fincore.description',
-      outcomesKey: 'portfolio.projects.fincore.outcomes',
-      image: 'https://images.unsplash.com/photo-1551135049-8a33b5883817?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGNvbnN1bHRpbmclMjBtZWV0aW5nfGVufDF8fHx8MTc2MjUxMjg3MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      tech: ['Vue.js', 'Java', 'PostgreSQL', 'Docker'],
+      titleKey: 'portfolio.projects.sanchay.title',
+      categoryKey: 'portfolio.projects.sanchay.category',
+      descriptionKey: 'portfolio.projects.sanchay.description',
+      outcomesKey: 'portfolio.projects.sanchay.outcomes',
+      image:
+        'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw1fHxmaW5hbmNlJTIwdGVjaG5vbG9neSUyMHN5c3RlbSUyMHByb2plY3R8ZW58MXx8fHwxNzYyNjM0MjI2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      tech: [
+        'Angular 19',
+        'Spring Boot 3',
+        'PostgreSQL',
+        'Redis',
+        'RabbitMQ',
+        'Docker',
+        'Prometheus',
+        'Grafana',
+      ],
     },
   ];
 
@@ -89,7 +99,10 @@ export function Portfolio() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1A237E]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-6 left-6 right-6">
-                      <motion.button
+                      <motion.a
+                        href={createCaseStudyMailto(title)}
+                        target="_blank"
+                        rel="noopener"
                         whileHover={{ scale: 1.05 }}
                         transition={{ type: 'spring', stiffness: 240, damping: 18 }}
                         className="bg-white text-[#1A237E] px-6 py-3 rounded-lg flex items-center gap-2"
@@ -97,7 +110,7 @@ export function Portfolio() {
                       >
                         {t('portfolio.project.cta')}
                         <ExternalLink size={16} />
-                      </motion.button>
+                      </motion.a>
                     </div>
                   </div>
                 </div>
@@ -188,7 +201,7 @@ export function Portfolio() {
               whileTap={{ scale: 0.95 }}
               transition={{ type: 'spring', stiffness: 230, damping: 20 }}
               className="bg-[#1A237E] text-white px-8 py-4 rounded-lg flex items-center gap-2 mx-auto hover:bg-[#1A237E]/90 transition-colors"
-              onClick={() => trackCtaClick('portfolio_more', t('portfolio.more.cta'))}
+              onClick={handleStartProject}
             >
               {t('portfolio.more.cta')}
               <ArrowRight size={20} />

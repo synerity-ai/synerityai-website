@@ -107,18 +107,10 @@ tech.why.security.description,Industry-standard security practices and regular u
 portfolio.outcomes.heading,Key Outcomes:
 portfolio.heading,Portfolio
 portfolio.description,Real-world projects that showcase our expertise and commitment to excellence
-portfolio.projects.nexus.category,SaaS Platform
-portfolio.projects.nexus.title,Skyline OS
-"portfolio.projects.nexus.description","Unified subscription management platform powering pricing, billing, and entitlements for global SaaS teams."
-"portfolio.projects.nexus.outcomes","35% faster feature launch cadence|Zero-downtime pricing experiments|Automated billing reconciliation"
-portfolio.projects.streamify.category,Customer Experience
-portfolio.projects.streamify.title,Loop Studio
-"portfolio.projects.streamify.description","Streaming-inspired content hub with personalized recommendations and a modern React + GraphQL stack."
-"portfolio.projects.streamify.outcomes","2.3x increase in engagement|AI-driven content personalization|99.95% uptime across regions"
-portfolio.projects.fincore.category,Data & AI
-portfolio.projects.fincore.title,Northstar Insights
-"portfolio.projects.fincore.description","Real-time analytics platform combining event data, ML scoring, and executive dashboards for growth teams."
-"portfolio.projects.fincore.outcomes","Unified customer intelligence in weeks|Sub-100ms decision APIs|Automated insights for GTM teams"
+portfolio.projects.sanchay.category,Cooperative Banking Platform
+portfolio.projects.sanchay.title,Sanchay
+"portfolio.projects.sanchay.description","Enterprise-grade microservices banking platform built for cooperative credit societies with multi-tenant operations, event-driven processing, and banking-compliant security."
+"portfolio.projects.sanchay.outcomes","Digitized end-to-end banking workflows|Real-time event processing with RabbitMQ|Regulatory-compliant security with JWT and RBAC|Tenant-isolated deployments with centralized analytics"
 portfolio.project.cta,View Case Study
 portfolio.more.heading,More Projects Coming Soon
 "portfolio.more.description","We're constantly working on exciting new projects. Check back soon to see more of our work or get in touch to discuss your project."

@@ -4,10 +4,32 @@ import { useState } from 'react';
 import { useTranslation } from '../i18n';
 import { trackContactSubmission, trackCtaClick } from '../lib/analytics';
 import { submitContactForm } from '../lib/webhook';
+import { scrollToSection } from '../lib/dom';
 
 export function Contact() {
   const prefersReducedMotion = useReducedMotion();
   const { t } = useTranslation();
+  const contactEmail = t('contact.info.email.value');
+  const composeMailto = (subject: string, body?: string) => {
+    const parameters = new URLSearchParams({
+      subject,
+    });
+
+    if (body) {
+      parameters.append('body', body);
+    }
+
+    return `mailto:${contactEmail}?${parameters.toString()}`;
+  };
+
+  const handleHireDevelopersClick = () => {
+    trackCtaClick('contact_hire_primary', t('contact.hire.primary'));
+  };
+
+  const handleHireLearnMoreClick = () => {
+    trackCtaClick('contact_hire_secondary', t('contact.hire.secondary'));
+    scrollToSection('services');
+  };
 
   const [formData, setFormData] = useState({
     name: '',
@@ -293,21 +315,25 @@ export function Contact() {
               {t('contact.hire.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
+              <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: 'spring', stiffness: 230, damping: 20 }}
                 className="bg-white text-purple-600 px-8 py-4 rounded-lg hover:shadow-xl transition-all"
-                onClick={() => trackCtaClick('contact_hire_primary', t('contact.hire.primary'))}
+                href={composeMailto(
+                  'Hire Developers Inquiry',
+                  'Hi Synerity team,\n\nI am looking to hire developers and would like to discuss details with you.\n\nThanks!'
+                )}
+                onClick={handleHireDevelopersClick}
               >
                 {t('contact.hire.primary')}
-              </motion.button>
+              </motion.a>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: 'spring', stiffness: 230, damping: 20 }}
                 className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-all"
-                onClick={() => trackCtaClick('contact_hire_secondary', t('contact.hire.secondary'))}
+                onClick={handleHireLearnMoreClick}
               >
                 {t('contact.hire.secondary')}
               </motion.button>

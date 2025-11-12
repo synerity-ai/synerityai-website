@@ -25,18 +25,24 @@ export function Footer({ onNavigate }: FooterProps) {
     ],
     resources: [
       { labelKey: 'footer.links.techStack', id: 'tech' },
-      { labelKey: 'footer.links.blog', id: 'blog' },
-      { labelKey: 'footer.links.careers', id: 'careers' },
-      { labelKey: 'footer.links.privacy', id: 'privacy' },
+      { labelKey: 'footer.links.blog', url: '/blog.html' },
+      { labelKey: 'footer.links.careers', url: '/careers.html' },
+      { labelKey: 'footer.links.privacy', url: '/privacy-policy.html' },
     ],
-  };
+  } as const;
+
+  const legalLinks = [
+    { labelKey: 'footer.links.terms', url: '/terms-of-service.html' },
+    { labelKey: 'footer.links.privacy', url: '/privacy-policy.html' },
+    { labelKey: 'footer.links.cookie', url: '/cookie-policy.html' },
+  ] as const;
 
   const socialLinks = [
-    { icon: Linkedin, labelKey: 'footer.social.linkedin', url: '#' },
-    { icon: Twitter, labelKey: 'footer.social.twitter', url: '#' },
-    { icon: Github, labelKey: 'footer.social.github', url: '#' },
-    { icon: Facebook, labelKey: 'footer.social.facebook', url: '#' },
-  ];
+    { icon: Linkedin, labelKey: 'footer.social.linkedin', url: 'https://www.linkedin.com/company/synerityai/' },
+    { icon: Twitter, labelKey: 'footer.social.twitter', url: 'https://twitter.com/synerityai' },
+    { icon: Github, labelKey: 'footer.social.github', url: 'https://github.com/synerity-ai' },
+    { icon: Facebook, labelKey: 'footer.social.facebook', url: 'https://www.facebook.com/synerityai' },
+  ] as const;
 
   return (
     <footer className="bg-gradient-to-b from-gray-900 to-black text-white">
@@ -66,6 +72,8 @@ export function Footer({ onNavigate }: FooterProps) {
                 <motion.a
                   key={social.labelKey}
                   href={social.url}
+                  target="_blank"
+                  rel="noopener"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-10 h-10 bg-gray-800 hover:bg-[#1A237E] rounded-lg flex items-center justify-center transition-colors"
@@ -139,15 +147,25 @@ export function Footer({ onNavigate }: FooterProps) {
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.labelKey}>
-                  <button
-                    onClick={() => {
-                      trackNavigation('footer_resources', link.id);
-                      onNavigate(link.id);
-                    }}
-                    className="text-gray-400 hover:text-white transition-colors text-sm"
-                  >
-                    {t(link.labelKey)}
-                  </button>
+                  {link.id ? (
+                    <button
+                      onClick={() => {
+                        trackNavigation('footer_resources', link.id);
+                        onNavigate(link.id);
+                      }}
+                      className="text-gray-400 hover:text-white transition-colors text-sm"
+                    >
+                      {t(link.labelKey)}
+                    </button>
+                  ) : (
+                    <a
+                      href={link.url}
+                      className="text-gray-400 hover:text-white transition-colors text-sm"
+                      onClick={() => trackNavigation('footer_resources', link.url ?? '')}
+                    >
+                      {t(link.labelKey)}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -167,24 +185,16 @@ export function Footer({ onNavigate }: FooterProps) {
               {t('footer.bottom.copyright')}
             </p>
             <div className="flex gap-6">
-              <button
-                className="text-gray-400 hover:text-white transition-colors text-sm"
-                onClick={() => trackNavigation('footer_legal', 'terms')}
-              >
-                {t('footer.links.terms')}
-              </button>
-              <button
-                className="text-gray-400 hover:text-white transition-colors text-sm"
-                onClick={() => trackNavigation('footer_legal', 'privacy')}
-              >
-                {t('footer.links.privacy')}
-              </button>
-              <button
-                className="text-gray-400 hover:text-white transition-colors text-sm"
-                onClick={() => trackNavigation('footer_legal', 'cookie')}
-              >
-                {t('footer.links.cookie')}
-              </button>
+              {legalLinks.map((link) => (
+                <a
+                  key={link.labelKey}
+                  href={link.url}
+                  className="text-gray-400 hover:text-white transition-colors text-sm"
+                  onClick={() => trackNavigation('footer_legal', link.url)}
+                >
+                  {t(link.labelKey)}
+                </a>
+              ))}
             </div>
           </div>
         </motion.div>

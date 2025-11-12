@@ -211,23 +211,11 @@
     "heading": "Portfolio",
     "description": "Real-world projects that showcase our expertise and commitment to excellence",
     "projects": {
-      "nexus": {
-        "category": "SaaS Platform",
-        "title": "Skyline OS",
-        "description": "Unified subscription management platform powering pricing, billing, and entitlements for global SaaS teams.",
-        "outcomes": "35% faster feature launch cadence|Zero-downtime pricing experiments|Automated billing reconciliation"
-      },
-      "streamify": {
-        "category": "Customer Experience",
-        "title": "Loop Studio",
-        "description": "Streaming-inspired content hub with personalized recommendations and a modern React + GraphQL stack.",
-        "outcomes": "2.3x increase in engagement|AI-driven content personalization|99.95% uptime across regions"
-      },
-      "fincore": {
-        "category": "Data & AI",
-        "title": "Northstar Insights",
-        "description": "Real-time analytics platform combining event data, ML scoring, and executive dashboards for growth teams.",
-        "outcomes": "Unified customer intelligence in weeks|Sub-100ms decision APIs|Automated insights for GTM teams"
+      "sanchay": {
+        "category": "Cooperative Banking Platform",
+        "title": "Sanchay",
+        "description": "Enterprise-grade microservices banking platform built for cooperative credit societies with multi-tenant operations, event-driven processing, and banking-compliant security.",
+        "outcomes": "Digitized end-to-end banking workflows|Real-time event processing with RabbitMQ|Regulatory-compliant security with JWT and RBAC|Tenant-isolated deployments with centralized analytics"
       }
     },
     "project": {
