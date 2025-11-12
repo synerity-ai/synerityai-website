@@ -1,9 +1,12 @@
 import { motion, useReducedMotion } from 'motion/react';
 import { Mail, Phone, MapPin, Send, Download } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslation } from '../i18n';
+import { trackContactSubmission, trackCtaClick } from '../lib/analytics';
 
 export function Contact() {
   const prefersReducedMotion = useReducedMotion();
+  const { t } = useTranslation();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -15,7 +18,8 @@ export function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Mock form submission
-    alert('Thank you for your message! We will get back to you soon.');
+    alert(t('contact.form.success'));
+    trackContactSubmission('contact_form');
     setFormData({ name: '', email: '', company: '', message: '' });
   };
 
@@ -29,20 +33,20 @@ export function Contact() {
   const contactInfo = [
     {
       icon: Mail,
-      label: 'Email',
-      value: 'hello@synerity.com',
-      link: 'mailto:hello@synerity.com',
+      label: t('contact.info.email.label'),
+      value: t('contact.info.email.value'),
+      link: `mailto:${t('contact.info.email.value')}`,
     },
     {
       icon: Phone,
-      label: 'Phone',
-      value: '+91 20 1234 5678',
-      link: 'tel:+912012345678',
+      label: t('contact.info.phone.label'),
+      value: t('contact.info.phone.value'),
+      link: `tel:${t('contact.info.phone.value').replace(/[^+\d]/g, '')}`,
     },
     {
       icon: MapPin,
-      label: 'Location',
-      value: 'Pune, Maharashtra, India',
+      label: t('contact.info.location.label'),
+      value: t('contact.info.location.value'),
       link: null,
     },
   ];
@@ -63,14 +67,14 @@ export function Contact() {
           className="text-center mb-16"
         >
           <h2 id="contact-heading" className="text-4xl md:text-5xl text-gray-900 mb-4">
-            Get In Touch
+            {t('contact.heading')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to start your project? Let's discuss how we can help bring your ideas to life.
+            {t('contact.description')}
           </p>
         </motion.div>
 
-        <div className="grid gap-10 lg:gap-12 md:grid-cols-2 max-w-6xl mx-auto">
+        <div className="grid gap-12 lg:gap-16 md:grid-cols-2 max-w-6xl mx-auto">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -79,11 +83,11 @@ export function Contact() {
             transition={{ duration: 0.55, ease: 'easeOut' }}
             className="bg-white rounded-2xl shadow-xl p-8 border border-gray-200"
           >
-            <h3 className="text-2xl text-gray-900 mb-6">Share your challenge</h3>
+            <h3 className="text-2xl text-gray-900 mb-6">{t('contact.form.heading')}</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-gray-700 mb-2">
-                  Name *
+                  {t('contact.form.name.label')}
                 </label>
                 <input
                   type="text"
@@ -93,13 +97,13 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A237E] focus:border-transparent transition-all"
-                  placeholder="Full name"
+                  placeholder={t('contact.form.name.placeholder')}
                 />
               </div>
 
               <div>
                 <label htmlFor="email" className="block text-gray-700 mb-2">
-                  Email *
+                  {t('contact.form.email.label')}
                 </label>
                 <input
                   type="email"
@@ -109,13 +113,13 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A237E] focus:border-transparent transition-all"
-                  placeholder="work.email@company.com"
+                  placeholder={t('contact.form.email.placeholder')}
                 />
               </div>
 
               <div>
                 <label htmlFor="company" className="block text-gray-700 mb-2">
-                  Company
+                  {t('contact.form.company.label')}
                 </label>
                 <input
                   type="text"
@@ -124,13 +128,13 @@ export function Contact() {
                   value={formData.company}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A237E] focus:border-transparent transition-all"
-                  placeholder="Organization (optional)"
+                  placeholder={t('contact.form.company.placeholder')}
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-gray-700 mb-2">
-                  Message *
+                  {t('contact.form.message.label')}
                 </label>
                 <textarea
                   id="message"
@@ -140,7 +144,7 @@ export function Contact() {
                   required
                   rows={5}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A237E] focus:border-transparent transition-all resize-none"
-                  placeholder="What problem are we solving together?"
+                  placeholder={t('contact.form.message.placeholder')}
                 />
               </div>
 
@@ -151,7 +155,7 @@ export function Contact() {
                 transition={{ type: 'spring', stiffness: 230, damping: 20 }}
                 className="w-full bg-[#1A237E] text-white py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-[#1A237E]/90 transition-colors"
               >
-                Request a consultation
+                {t('contact.form.submit')}
                 <Send size={20} />
               </motion.button>
             </form>
@@ -163,10 +167,10 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.55, ease: 'easeOut' }}
-            className="space-y-8"
+            className="space-y-12 lg:space-y-14"
           >
             {/* Contact Info Cards */}
-            <div className="space-y-4">
+            <div className="space-y-8">
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={info.label}
@@ -187,6 +191,7 @@ export function Contact() {
                         <a
                           href={info.link}
                           className="text-gray-900 hover:text-[#1A237E] transition-colors"
+                          onClick={() => trackCtaClick('contact_info', info.label)}
                         >
                           {info.value}
                         </a>
@@ -209,7 +214,7 @@ export function Contact() {
             >
               <div className="aspect-video bg-gray-200 relative">
                 <iframe
-                  title="Synerity Office Location"
+                  title={t('contact.map.title')}
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242118.18174191178!2d73.69815229999999!3d18.52461475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sus!4v1234567890"
                   width="100%"
                   height="100%"
@@ -233,9 +238,10 @@ export function Contact() {
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: 'spring', stiffness: 240, damping: 20 }}
                 className="w-full bg-gradient-to-r from-[#1A237E] to-[#3949AB] text-white py-4 rounded-lg flex items-center justify-center gap-2 hover:shadow-xl transition-all"
+                onClick={() => trackCtaClick('contact_resources', t('contact.resources.button'))}
               >
                 <Download size={20} />
-                Download our capability deck
+                {t('contact.resources.button')}
               </motion.button>
             </motion.div>
           </motion.div>
@@ -250,9 +256,9 @@ export function Contact() {
           className="mt-16 max-w-4xl mx-auto"
         >
           <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 md:p-12 text-white text-center">
-            <h3 className="text-3xl mb-4">Looking to Hire Developers?</h3>
+            <h3 className="text-3xl mb-4">{t('contact.hire.heading')}</h3>
             <p className="text-xl mb-8 text-blue-100">
-              We offer technical interview support and dedicated developer teams tailored to your needs.
+              {t('contact.hire.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
@@ -260,16 +266,18 @@ export function Contact() {
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: 'spring', stiffness: 230, damping: 20 }}
                 className="bg-white text-purple-600 px-8 py-4 rounded-lg hover:shadow-xl transition-all"
+                onClick={() => trackCtaClick('contact_hire_primary', t('contact.hire.primary'))}
               >
-                Hire Developers
+                {t('contact.hire.primary')}
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: 'spring', stiffness: 230, damping: 20 }}
                 className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-all"
+                onClick={() => trackCtaClick('contact_hire_secondary', t('contact.hire.secondary'))}
               >
-                Learn More
+                {t('contact.hire.secondary')}
               </motion.button>
             </div>
           </div>

@@ -1,0 +1,174 @@
+key,en
+app.skipToContent,Skip to main content
+common.loading,Loading
+navigation.brand.name,Synerity
+navigation.brand.suffix,Pvt. Ltd.
+navigation.items.home,Home
+navigation.items.about,About Us
+navigation.items.services,Services
+navigation.items.process,Process
+navigation.items.tech,Tech Stack
+navigation.items.portfolio,Portfolio
+navigation.items.contact,Contact
+navigation.mobile.open,Open navigation menu
+navigation.mobile.close,Close navigation menu
+hero.badge,Software Engineering Partner
+hero.heading,Build high-impact software with a partner you trust
+"hero.description","Synerity architects and ships modern digital products, cloud platforms, and AI-enabled experiences that customers love. From product discovery to global-scale delivery, we design every touchpoint for reliability, performance, and growth."
+hero.cta,Start a project conversation
+hero.highlights.productPlatforms.title,Product Platforms
+hero.highlights.productPlatforms.description,"Design and launch customer-grade web and mobile experiences."
+hero.highlights.cloudPlatforms.title,Cloud Platforms
+hero.highlights.cloudPlatforms.description,"Cloud-native foundations with automation, security, and observability built in."
+hero.highlights.aiAnalytics.title,AI & Analytics
+hero.highlights.aiAnalytics.description,"Unlock insight with data platforms, machine learning, and decisioning solutions."
+hero.image.alt,Team collaborating on software architecture
+about.heading,Engineering software that accelerates growth
+"about.description","Synerity partners with product leaders to design, build, and scale modern software that drives adoption, revenue, and resilience."
+about.story.heading,Our Story
+"about.story.paragraph1.prefix","Founded in Pune, India, Synerity Pvt. Ltd. was born from a simple belief:"
+"about.story.paragraph1.highlight"," software engineered with integrity scales further."
+"about.story.paragraph1.suffix"," We combine product thinking, craftsmanship, and measurable delivery to help teams launch faster."
+"about.story.paragraph2.prefix","Our name reflects our core philosophy—creating "
+about.story.paragraph2.highlightSynergy,synergy
+"about.story.paragraph2.middle"," between ambitious ideas and pragmatic execution, while upholding uncompromising "
+about.story.paragraph2.highlightIntegrity,integrity
+"about.story.paragraph2.suffix"," in every line of code."
+about.story.quote,Software engineered with integrity scales further.
+about.image.alt,Synerity engineering team
+about.values.mission.title,Mission
+"about.values.mission.description","To empower businesses with innovative technology solutions that drive growth and efficiency."
+about.values.vision.title,Vision
+"about.values.vision.description","To be the most trusted technology partner for companies seeking digital transformation."
+about.values.integrity.title,Integrity
+"about.values.integrity.description","We build lasting relationships through transparency, honesty, and ethical practices."
+about.values.innovation.title,Innovation
+"about.values.innovation.description","Constantly evolving with the latest technologies to deliver cutting-edge solutions."
+services.heading,Our Services
+services.description,Comprehensive engineering services tailored to product teams
+services.cards.web.title,Product Strategy & UX
+"services.cards.web.description","Validate ideas, map user journeys, and deliver delightful experiences."
+"services.cards.web.features","Discovery workshops & sprints|Customer journey mapping|Interactive design prototypes|Design systems & UI kits"
+services.cards.productEngineering.title,Full-stack Development
+"services.cards.productEngineering.description","Build secure, high-performing applications across web, mobile, and APIs."
+"services.cards.productEngineering.features","React, Angular, Flutter apps|API & microservice engineering|Automated testing & QA|CI/CD enablement"
+services.cards.cloud.title,Cloud & DevOps
+"services.cards.cloud.description","Operate reliable cloud environments with automation, observability, and governance."
+"services.cards.cloud.features","AWS, Azure, GCP foundations|Infrastructure as code & Terraform|Observability, logging, and SRE|Cost and security controls"
+services.cards.teams.title,Data & AI Solutions
+"services.cards.teams.description","Create data platforms, analytics, and machine learning products that unlock insight."
+"services.cards.teams.features","Modern data platform architecture|Analytics dashboards|ML model development|MLOps & continuous improvement"
+services.cards.consulting.title,Technology Consulting
+"services.cards.consulting.description","Navigate modernization, architecture, and performance initiatives with confidence."
+"services.cards.consulting.features","Enterprise architecture blueprints|Modernization roadmaps|Performance & scalability audits|Security and compliance reviews"
+services.cards.talent.title,Managed Engineering Teams
+"services.cards.talent.description","Scale with dedicated squads that plug into your roadmap and delivery rituals."
+"services.cards.talent.features","Cross-functional product squads|Flexible engagement models|Transparent delivery cadence|Quality and release governance"
+services.cards.learnMore,Talk to us
+services.cta.heading,Ready to accelerate your roadmap?
+"services.cta.description","Partner with Synerity to design, build, and scale your next release."
+services.cta.primary,Speak with our experts
+services.cta.secondary,Explore recent wins
+process.heading,Our Process
+"process.description","A proven methodology that keeps teams aligned, shipping, and learning"
+process.steps.label,Step
+process.steps.discovery.title,Discovery
+"process.steps.discovery.description","We immerse ourselves in your product vision, stakeholders, and constraints."
+"process.steps.discovery.details","Stakeholder and user interviews|Service blueprinting|Success metrics & ROI modelling|Technical feasibility assessment"
+process.steps.design.title,Design
+"process.steps.design.description","Create validated prototypes, architectures, and delivery plans."
+"process.steps.design.details","Experience design & prototyping|Architecture spikes|Backlog definition & sizing|Research-driven testing loops"
+process.steps.development.title,Development
+"process.steps.development.description","Build iteratively with quality, automation, and measurable progress."
+"process.steps.development.details","Agile product delivery|Automated testing & quality gates|Performance benchmarking|Security and compliance baked in"
+process.steps.delivery.title,Delivery
+"process.steps.delivery.description","Launch, onboard, and evolve with confidence and clear playbooks."
+"process.steps.delivery.details","Production deployment & hypercare|Runbooks and documentation|Enablement for product & ops teams|Continuous optimization roadmap"
+process.footer.description,Every project is unique. We adapt our process to fit your specific needs.
+process.footer.cta,Let's Discuss Your Project
+tech.heading,Technology Stack
+"tech.description","Our stack is built for speed, scalability, and reliability"
+tech.categories.frontend.title,Frontend
+tech.categories.backend.title,Backend
+tech.categories.database.title,Database
+tech.categories.cloud.title,Cloud & DevOps
+tech.categories.tools.title,Tools
+tech.stats.technologies,Technologies
+tech.stats.projects,Projects Delivered
+tech.stats.experts,Expert Developers
+tech.stats.satisfaction,Client Satisfaction
+tech.why.heading,Why Our Technology Stack?
+tech.why.performance.title,High Performance
+tech.why.performance.description,Optimized for speed and efficiency to deliver the best user experience
+tech.why.scalability.title,Scalability
+tech.why.scalability.description,Built to grow with your business from startup to enterprise
+tech.why.security.title,Security First
+tech.why.security.description,Industry-standard security practices and regular updates
+portfolio.outcomes.heading,Key Outcomes:
+portfolio.heading,Portfolio
+portfolio.description,Real-world projects that showcase our expertise and commitment to excellence
+portfolio.projects.nexus.category,SaaS Platform
+portfolio.projects.nexus.title,Skyline OS
+"portfolio.projects.nexus.description","Unified subscription management platform powering pricing, billing, and entitlements for global SaaS teams."
+"portfolio.projects.nexus.outcomes","35% faster feature launch cadence|Zero-downtime pricing experiments|Automated billing reconciliation"
+portfolio.projects.streamify.category,Customer Experience
+portfolio.projects.streamify.title,Loop Studio
+"portfolio.projects.streamify.description","Streaming-inspired content hub with personalized recommendations and a modern React + GraphQL stack."
+"portfolio.projects.streamify.outcomes","2.3x increase in engagement|AI-driven content personalization|99.95% uptime across regions"
+portfolio.projects.fincore.category,Data & AI
+portfolio.projects.fincore.title,Northstar Insights
+"portfolio.projects.fincore.description","Real-time analytics platform combining event data, ML scoring, and executive dashboards for growth teams."
+"portfolio.projects.fincore.outcomes","Unified customer intelligence in weeks|Sub-100ms decision APIs|Automated insights for GTM teams"
+portfolio.project.cta,View Case Study
+portfolio.more.heading,More Projects Coming Soon
+"portfolio.more.description","We're constantly working on exciting new projects. Check back soon to see more of our work or get in touch to discuss your project."
+portfolio.more.cta,Start Your Project
+contact.heading,Get In Touch
+"contact.description","Ready to start your project? Let's discuss how we can help bring your ideas to life."
+contact.form.heading,Share your challenge
+contact.form.name.label,Name *
+contact.form.name.placeholder,Full name
+contact.form.email.label,Email *
+contact.form.email.placeholder,work.email@company.com
+contact.form.company.label,Company
+contact.form.company.placeholder,Organization (optional)
+contact.form.message.label,Message *
+contact.form.message.placeholder,What problem are we solving together?
+contact.form.submit,Request a consultation
+"contact.form.success","Thank you for your message! We will get back to you soon."
+contact.info.email.label,Email
+contact.info.email.value,hello@synerity.com
+contact.info.phone.label,Phone
+contact.info.phone.value,+91 20 1234 5678
+contact.info.location.label,Location
+"contact.info.location.value","Pune, Maharashtra, India"
+contact.map.title,Synerity Office Location
+contact.resources.button,Download our capability deck
+contact.hire.heading,Looking to Hire Developers?
+"contact.hire.description","We offer technical interview support and dedicated developer teams tailored to your needs."
+contact.hire.primary,Hire Developers
+contact.hire.secondary,Learn More
+"footer.brand.description","Empowering companies with synergy and integrity. Building technology solutions that drive business growth and digital transformation."
+footer.sections.company.title,Company
+footer.sections.services.title,Services
+footer.sections.resources.title,Resources
+footer.links.about,About Us
+footer.links.process,Our Process
+footer.links.portfolio,Portfolio
+footer.links.contact,Contact
+footer.links.webDevelopment,Web Development
+footer.links.productEngineering,Product Engineering
+footer.links.cloudDevops,Cloud & DevOps
+footer.links.consulting,Consulting
+footer.links.techStack,Tech Stack
+footer.links.blog,Blog
+footer.links.careers,Careers
+footer.links.privacy,Privacy Policy
+footer.links.terms,Terms of Service
+footer.links.cookie,Cookie Policy
+footer.social.linkedin,LinkedIn
+footer.social.twitter,Twitter
+footer.social.github,GitHub
+footer.social.facebook,Facebook
+footer.bottom.copyright,© 2025 Synerity Pvt. Ltd. All rights reserved.
+

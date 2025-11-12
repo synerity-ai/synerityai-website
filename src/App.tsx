@@ -3,6 +3,7 @@ import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUp } from 'lucide-react';
+import { useTranslation } from './i18n';
 
 const About = lazy(() => import('./components/About').then((module) => ({ default: module.About })));
 const Services = lazy(() =>
@@ -19,9 +20,11 @@ const Contact = lazy(() => import('./components/Contact').then((module) => ({ de
 const Footer = lazy(() => import('./components/Footer').then((module) => ({ default: module.Footer })));
 
 function SectionFallback({ label }: { label: string }) {
+  const { t } = useTranslation();
+
   return (
     <div className="py-20 text-center text-gray-400" aria-live="polite" aria-busy="true">
-      Loading {label}...
+      {t('common.loading')} {label}...
     </div>
   );
 }
@@ -30,6 +33,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [showScrollTop, setShowScrollTop] = useState(false);
   const tickingRef = useRef(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,7 +91,7 @@ export default function App() {
         href="#main-content"
         className="fixed left-4 top-3 -translate-y-16 focus:translate-y-0 focus:outline focus:outline-2 focus:outline-[#1A237E] bg-white text-[#1A237E] px-4 py-2 rounded-md shadow-lg z-50 transition-transform"
       >
-        Skip to main content
+        {t('app.skipToContent')}
       </a>
       {/* Navigation */}
       <Navigation activeSection={activeSection} onNavigate={handleNavigate} />
@@ -100,38 +104,38 @@ export default function App() {
         </div>
 
         {/* About Section */}
-        <Suspense fallback={<SectionFallback label="About section" />}>
+        <Suspense fallback={<SectionFallback label={t('about.heading')} />}>
           <About />
         </Suspense>
 
         {/* Services Section */}
-        <Suspense fallback={<SectionFallback label="Services section" />}>
+        <Suspense fallback={<SectionFallback label={t('services.heading')} />}>
           <Services />
         </Suspense>
 
         {/* Process Section */}
-        <Suspense fallback={<SectionFallback label="Process section" />}>
+        <Suspense fallback={<SectionFallback label={t('process.heading')} />}>
           <Process />
         </Suspense>
 
         {/* Tech Stack Section */}
-        <Suspense fallback={<SectionFallback label="Technology stack section" />}>
+        <Suspense fallback={<SectionFallback label={t('tech.heading')} />}>
           <TechStack />
         </Suspense>
 
         {/* Portfolio Section */}
-        <Suspense fallback={<SectionFallback label="Portfolio section" />}>
+        <Suspense fallback={<SectionFallback label={t('portfolio.heading')} />}>
           <Portfolio />
         </Suspense>
 
         {/* Contact Section */}
-        <Suspense fallback={<SectionFallback label="Contact section" />}>
+        <Suspense fallback={<SectionFallback label={t('contact.heading')} />}>
           <Contact />
         </Suspense>
       </main>
 
       {/* Footer */}
-      <Suspense fallback={<SectionFallback label="Footer" />}>
+      <Suspense fallback={<SectionFallback label={t('navigation.brand.name')} />}>
         <Footer onNavigate={handleNavigate} />
       </Suspense>
 

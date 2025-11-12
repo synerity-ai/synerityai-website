@@ -1,0 +1,334 @@
+{
+  "app": {
+    "skipToContent": "Skip to main content"
+  },
+  "common": {
+    "loading": "Loading"
+  },
+  "navigation": {
+    "brand": {
+      "name": "Synerity",
+      "suffix": "Pvt. Ltd."
+    },
+    "items": {
+      "home": "Home",
+      "about": "About Us",
+      "services": "Services",
+      "process": "Process",
+      "tech": "Tech Stack",
+      "portfolio": "Portfolio",
+      "contact": "Contact"
+    },
+    "mobile": {
+      "open": "Open navigation menu",
+      "close": "Close navigation menu"
+    }
+  },
+  "hero": {
+    "badge": "Software Engineering Partner",
+    "heading": "Build high-impact software with a partner you trust",
+    "description": "Synerity architects and ships modern digital products, cloud platforms, and AI-enabled experiences that customers love. From product discovery to global-scale delivery, we design every touchpoint for reliability, performance, and growth.",
+    "cta": "Start a project conversation",
+    "highlights": {
+      "productPlatforms": {
+        "title": "Product Platforms",
+        "description": "Design and launch customer-grade web and mobile experiences."
+      },
+      "cloudPlatforms": {
+        "title": "Cloud Platforms",
+        "description": "Cloud-native foundations with automation, security, and observability built in."
+      },
+      "aiAnalytics": {
+        "title": "AI & Analytics",
+        "description": "Unlock insight with data platforms, machine learning, and decisioning solutions."
+      }
+    },
+    "image": {
+      "alt": "Team collaborating on software architecture"
+    }
+  },
+  "about": {
+    "heading": "Engineering software that accelerates growth",
+    "description": "Synerity partners with product leaders to design, build, and scale modern software that drives adoption, revenue, and resilience.",
+    "story": {
+      "heading": "Our Story",
+      "paragraph1": {
+        "prefix": "Founded in Pune, India, Synerity Pvt. Ltd. was born from a simple belief:",
+        "highlight": "software engineered with integrity scales further.",
+        "suffix": "We combine product thinking, craftsmanship, and measurable delivery to help teams launch faster."
+      },
+      "paragraph2": {
+        "prefix": "Our name reflects our core philosophy—creating",
+        "highlightSynergy": "synergy",
+        "middle": "between ambitious ideas and pragmatic execution, while upholding uncompromising",
+        "highlightIntegrity": "integrity",
+        "suffix": "in every line of code."
+      },
+      "quote": "Software engineered with integrity scales further."
+    },
+    "image": {
+      "alt": "Synerity engineering team"
+    },
+    "values": {
+      "mission": {
+        "title": "Mission",
+        "description": "To empower businesses with innovative technology solutions that drive growth and efficiency."
+      },
+      "vision": {
+        "title": "Vision",
+        "description": "To be the most trusted technology partner for companies seeking digital transformation."
+      },
+      "integrity": {
+        "title": "Integrity",
+        "description": "We build lasting relationships through transparency, honesty, and ethical practices."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Constantly evolving with the latest technologies to deliver cutting-edge solutions."
+      }
+    }
+  },
+  "services": {
+    "heading": "Our Services",
+    "description": "Comprehensive engineering services tailored to product teams",
+    "cards": {
+      "web": {
+        "title": "Product Strategy & UX",
+        "description": "Validate ideas, map user journeys, and deliver delightful experiences.",
+        "features": "Discovery workshops & sprints|Customer journey mapping|Interactive design prototypes|Design systems & UI kits"
+      },
+      "productEngineering": {
+        "title": "Full-stack Development",
+        "description": "Build secure, high-performing applications across web, mobile, and APIs.",
+        "features": "React, Angular, Flutter apps|API & microservice engineering|Automated testing & QA|CI/CD enablement"
+      },
+      "cloud": {
+        "title": "Cloud & DevOps",
+        "description": "Operate reliable cloud environments with automation, observability, and governance.",
+        "features": "AWS, Azure, GCP foundations|Infrastructure as code & Terraform|Observability, logging, and SRE|Cost and security controls"
+      },
+      "teams": {
+        "title": "Data & AI Solutions",
+        "description": "Create data platforms, analytics, and machine learning products that unlock insight.",
+        "features": "Modern data platform architecture|Analytics dashboards|ML model development|MLOps & continuous improvement"
+      },
+      "consulting": {
+        "title": "Technology Consulting",
+        "description": "Navigate modernization, architecture, and performance initiatives with confidence.",
+        "features": "Enterprise architecture blueprints|Modernization roadmaps|Performance & scalability audits|Security and compliance reviews"
+      },
+      "talent": {
+        "title": "Managed Engineering Teams",
+        "description": "Scale with dedicated squads that plug into your roadmap and delivery rituals.",
+        "features": "Cross-functional product squads|Flexible engagement models|Transparent delivery cadence|Quality and release governance"
+      },
+      "learnMore": "Talk to us"
+    },
+    "cta": {
+      "heading": "Ready to accelerate your roadmap?",
+      "description": "Partner with Synerity to design, build, and scale your next release.",
+      "primary": "Speak with our experts",
+      "secondary": "Explore recent wins"
+    }
+  },
+  "process": {
+    "heading": "Our Process",
+    "description": "A proven methodology that keeps teams aligned, shipping, and learning",
+    "steps": {
+      "label": "Step",
+      "discovery": {
+        "title": "Discovery",
+        "description": "We immerse ourselves in your product vision, stakeholders, and constraints.",
+        "details": "Stakeholder and user interviews|Service blueprinting|Success metrics & ROI modelling|Technical feasibility assessment"
+      },
+      "design": {
+        "title": "Design",
+        "description": "Create validated prototypes, architectures, and delivery plans.",
+        "details": "Experience design & prototyping|Architecture spikes|Backlog definition & sizing|Research-driven testing loops"
+      },
+      "development": {
+        "title": "Development",
+        "description": "Build iteratively with quality, automation, and measurable progress.",
+        "details": "Agile product delivery|Automated testing & quality gates|Performance benchmarking|Security and compliance baked in"
+      },
+      "delivery": {
+        "title": "Delivery",
+        "description": "Launch, onboard, and evolve with confidence and clear playbooks.",
+        "details": "Production deployment & hypercare|Runbooks and documentation|Enablement for product & ops teams|Continuous optimization roadmap"
+      }
+    },
+    "footer": {
+      "description": "Every project is unique. We adapt our process to fit your specific needs.",
+      "cta": "Let's Discuss Your Project"
+    }
+  },
+  "tech": {
+    "heading": "Technology Stack",
+    "description": "Our stack is built for speed, scalability, and reliability",
+    "categories": {
+      "frontend": {
+        "title": "Frontend"
+      },
+      "backend": {
+        "title": "Backend"
+      },
+      "database": {
+        "title": "Database"
+      },
+      "cloud": {
+        "title": "Cloud & DevOps"
+      },
+      "tools": {
+        "title": "Tools"
+      }
+    },
+    "stats": {
+      "technologies": "Technologies",
+      "projects": "Projects Delivered",
+      "experts": "Expert Developers",
+      "satisfaction": "Client Satisfaction"
+    },
+    "why": {
+      "heading": "Why Our Technology Stack?",
+      "performance": {
+        "title": "High Performance",
+        "description": "Optimized for speed and efficiency to deliver the best user experience"
+      },
+      "scalability": {
+        "title": "Scalability",
+        "description": "Built to grow with your business from startup to enterprise"
+      },
+      "security": {
+        "title": "Security First",
+        "description": "Industry-standard security practices and regular updates"
+      }
+    }
+  },
+  "portfolio": {
+    "outcomes": {
+      "heading": "Key Outcomes:"
+    },
+    "heading": "Portfolio",
+    "description": "Real-world projects that showcase our expertise and commitment to excellence",
+    "projects": {
+      "nexus": {
+        "category": "SaaS Platform",
+        "title": "Skyline OS",
+        "description": "Unified subscription management platform powering pricing, billing, and entitlements for global SaaS teams.",
+        "outcomes": "35% faster feature launch cadence|Zero-downtime pricing experiments|Automated billing reconciliation"
+      },
+      "streamify": {
+        "category": "Customer Experience",
+        "title": "Loop Studio",
+        "description": "Streaming-inspired content hub with personalized recommendations and a modern React + GraphQL stack.",
+        "outcomes": "2.3x increase in engagement|AI-driven content personalization|99.95% uptime across regions"
+      },
+      "fincore": {
+        "category": "Data & AI",
+        "title": "Northstar Insights",
+        "description": "Real-time analytics platform combining event data, ML scoring, and executive dashboards for growth teams.",
+        "outcomes": "Unified customer intelligence in weeks|Sub-100ms decision APIs|Automated insights for GTM teams"
+      }
+    },
+    "project": {
+      "cta": "View Case Study"
+    },
+    "more": {
+      "heading": "More Projects Coming Soon",
+      "description": "We're constantly working on exciting new projects. Check back soon to see more of our work or get in touch to discuss your project.",
+      "cta": "Start Your Project"
+    }
+  },
+  "contact": {
+    "heading": "Get In Touch",
+    "description": "Ready to start your project? Let's discuss how we can help bring your ideas to life.",
+    "form": {
+      "heading": "Share your challenge",
+      "name": {
+        "label": "Name *",
+        "placeholder": "Full name"
+      },
+      "email": {
+        "label": "Email *",
+        "placeholder": "work.email@company.com"
+      },
+      "company": {
+        "label": "Company",
+        "placeholder": "Organization (optional)"
+      },
+      "message": {
+        "label": "Message *",
+        "placeholder": "What problem are we solving together?"
+      },
+      "submit": "Request a consultation",
+      "success": "Thank you for your message! We will get back to you soon."
+    },
+    "info": {
+      "email": {
+        "label": "Email",
+        "value": "hello@synerity.com"
+      },
+      "phone": {
+        "label": "Phone",
+        "value": "+91 20 1234 5678"
+      },
+      "location": {
+        "label": "Location",
+        "value": "Pune, Maharashtra, India"
+      }
+    },
+    "map": {
+      "title": "Synerity Office Location"
+    },
+    "resources": {
+      "button": "Download our capability deck"
+    },
+    "hire": {
+      "heading": "Looking to Hire Developers?",
+      "description": "We offer technical interview support and dedicated developer teams tailored to your needs.",
+      "primary": "Hire Developers",
+      "secondary": "Learn More"
+    }
+  },
+  "footer": {
+    "brand": {
+      "description": "Empowering companies with synergy and integrity. Building technology solutions that drive business growth and digital transformation."
+    },
+    "sections": {
+      "company": {
+        "title": "Company"
+      },
+      "services": {
+        "title": "Services"
+      },
+      "resources": {
+        "title": "Resources"
+      }
+    },
+    "links": {
+      "about": "About Us",
+      "process": "Our Process",
+      "portfolio": "Portfolio",
+      "contact": "Contact",
+      "webDevelopment": "Web Development",
+      "productEngineering": "Product Engineering",
+      "cloudDevops": "Cloud & DevOps",
+      "consulting": "Consulting",
+      "techStack": "Tech Stack",
+      "blog": "Blog",
+      "careers": "Careers",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookie": "Cookie Policy"
+    },
+    "social": {
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter",
+      "github": "GitHub",
+      "facebook": "Facebook"
+    },
+    "bottom": {
+      "copyright": "© 2025 Synerity Pvt. Ltd. All rights reserved."
+    }
+  }
+}

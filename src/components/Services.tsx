@@ -1,80 +1,53 @@
 import { motion, useReducedMotion } from 'motion/react';
 import { Code, Package, Cloud, Users, Lightbulb, Briefcase, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { useTranslation } from '../i18n';
+import { trackCtaClick } from '../lib/analytics';
 
 export function Services() {
   const prefersReducedMotion = useReducedMotion();
+  const { t } = useTranslation();
 
   const services = [
     {
       icon: Code,
-      title: 'Web Application Development',
-      description: 'Design compliant borrower and dispute portals with lightning-fast performance.',
-      features: [
-        'React, Angular, high-trust UX',
-        'Consent-aware data flows',
-        'Multilingual, accessible UI',
-        'Progressive & offline ready',
-      ],
+      titleKey: 'services.cards.web.title',
+      descriptionKey: 'services.cards.web.description',
+      featuresKey: 'services.cards.web.features',
       color: 'from-blue-500 to-blue-600',
     },
     {
       icon: Package,
-      title: 'Product Engineering',
-      description: 'Co-create secure credit lifecycle products from roadmap to launch.',
-      features: [
-        'MVP and roadmap co-creation',
-        'Regulatory-ready UX research',
-        'Design systems & prototyping',
-        'Secure CI/CD acceleration',
-      ],
+      titleKey: 'services.cards.productEngineering.title',
+      descriptionKey: 'services.cards.productEngineering.description',
+      featuresKey: 'services.cards.productEngineering.features',
       color: 'from-purple-500 to-purple-600',
     },
     {
       icon: Cloud,
-      title: 'Cloud & DevOps',
-      description: 'Operate zero-downtime credit platforms with governed cloud automation.',
-      features: [
-        'AWS, Azure, GCP blueprints',
-        'Containerized microservices',
-        'Policy-as-code & Terraform',
-        'Observability and FinOps',
-      ],
+      titleKey: 'services.cards.cloud.title',
+      descriptionKey: 'services.cards.cloud.description',
+      featuresKey: 'services.cards.cloud.features',
       color: 'from-green-500 to-green-600',
     },
     {
       icon: Users,
-      title: 'Dedicated Credit Squads',
-      description: 'Scale fast with on-demand engineers who know bureaus and compliance.',
-      features: [
-        'Full-stack + data engineers',
-        'Flexible pods or staff aug',
-        'Direct SME collaboration',
-        'Continuous quality reviews',
-      ],
+      titleKey: 'services.cards.teams.title',
+      descriptionKey: 'services.cards.teams.description',
+      featuresKey: 'services.cards.teams.features',
       color: 'from-orange-500 to-orange-600',
     },
     {
       icon: Lightbulb,
-      title: 'Consulting & Architecture',
-      description: 'Architect the next generation of dispute, scoring, and decisioning systems.',
-      features: [
-        'Domain-driven architecture',
-        'Tech stack evaluation',
-        'Latency & resiliency modelling',
-        'Security and data lineage audits',
-      ],
+      titleKey: 'services.cards.consulting.title',
+      descriptionKey: 'services.cards.consulting.description',
+      featuresKey: 'services.cards.consulting.features',
       color: 'from-pink-500 to-pink-600',
     },
     {
       icon: Briefcase,
-      title: 'Talent Intelligence',
-      description: 'Validate engineering hires with bureau-specific interview frameworks.',
-      features: [
-        'Interview Preparation',
-        'Technical Screening',
-        'Coding Assessments',
-        'Talent Evaluation',
-      ],
+      titleKey: 'services.cards.talent.title',
+      descriptionKey: 'services.cards.talent.description',
+      featuresKey: 'services.cards.talent.features',
       color: 'from-indigo-500 to-indigo-600',
     },
   ];
@@ -95,18 +68,21 @@ export function Services() {
           className="text-center mb-16"
         >
           <h2 id="services-heading" className="text-4xl md:text-5xl text-gray-900 mb-4">
-            Our Services
+            {t('services.heading')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive technology solutions tailored to your business needs
+            {t('services.description')}
           </p>
         </motion.div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {services.map((service, index) => (
+          {services.map((service, index) => {
+            const features = t(service.featuresKey).split('|').map((item) => item.trim()).filter(Boolean);
+
+            return (
             <motion.div
-              key={service.title}
+              key={service.titleKey}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
@@ -147,11 +123,11 @@ export function Services() {
                       <service.icon className="text-white" size={24} />
                     </motion.div>
                     <h3 className="text-gray-900 group-hover:text-[#1A237E] transition-colors text-[1.1rem] font-semibold">
-                      {service.title}
+                      {t(service.titleKey)}
                     </h3>
                   </div>
                   <p className="text-gray-600 leading-relaxed text-sm">
-                    {service.description}
+                    {t(service.descriptionKey)}
                   </p>
                 </div>
 
@@ -161,7 +137,7 @@ export function Services() {
                     role="list"
                     className="space-y-2"
                   >
-                    {service.features.map((feature, idx) => (
+                    {features.map((feature, idx) => (
                       <motion.li
                         key={idx}
                         initial={{ opacity: 0, x: -18 }}
@@ -185,8 +161,9 @@ export function Services() {
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.25, ease: 'easeOut' }}
                     className="flex items-center gap-2 text-sm text-gray-600 group-hover:text-[#1A237E] transition-colors font-medium"
+                    onClick={() => trackCtaClick(`services_${service.titleKey}_learn_more`, t('services.cards.learnMore'))}
                   >
-                    <span>Learn More</span>
+                    <span>{t('services.cards.learnMore')}</span>
                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
                   </motion.button>
                 </div>
@@ -201,7 +178,8 @@ export function Services() {
                 />
               </motion.div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
 
         {/* CTA Section */}
@@ -262,9 +240,9 @@ export function Services() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ delay: 0.2, duration: 0.5, ease: 'easeOut' }}
               >
-                <h3 className="text-3xl md:text-4xl mb-4">Ready to Start Your Project?</h3>
+                <h3 className="text-3xl md:text-4xl mb-4">{t('services.cta.heading')}</h3>
                 <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-                  Let's discuss how we can help bring your ideas to life with our expert team
+                  {t('services.cta.description')}
                 </p>
               </motion.div>
               
@@ -280,8 +258,9 @@ export function Services() {
                   whileTap={{ scale: 0.95 }}
                   className="bg-white text-[#1A237E] px-8 py-4 rounded-lg shadow-xl hover:shadow-2xl transition-all flex items-center justify-center gap-2"
                   transition={{ type: 'spring', stiffness: 220, damping: 20 }}
+                onClick={() => trackCtaClick('services_primary', t('services.cta.primary'))}
                 >
-                  Schedule a Consultation
+                  {t('services.cta.primary')}
                   <ArrowRight size={20} />
                 </motion.button>
                 <motion.button
@@ -289,8 +268,9 @@ export function Services() {
                   whileTap={{ scale: 0.95 }}
                   className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-all"
                   transition={{ type: 'spring', stiffness: 220, damping: 20 }}
+                onClick={() => trackCtaClick('services_secondary', t('services.cta.secondary'))}
                 >
-                  View Our Work
+                  {t('services.cta.secondary')}
                 </motion.button>
               </motion.div>
             </div>

@@ -1,28 +1,31 @@
 import { motion } from 'motion/react';
 import { Target, Eye, Heart, TrendingUp } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { useTranslation } from '../i18n';
 
 export function About() {
+  const { t } = useTranslation();
+
   const values = [
     {
       icon: Target,
-      title: 'Mission',
-      description: 'To empower businesses with innovative technology solutions that drive growth and efficiency.',
+      title: t('about.values.mission.title'),
+      description: t('about.values.mission.description'),
     },
     {
       icon: Eye,
-      title: 'Vision',
-      description: 'To be the most trusted technology partner for companies seeking digital transformation.',
+      title: t('about.values.vision.title'),
+      description: t('about.values.vision.description'),
     },
     {
       icon: Heart,
-      title: 'Integrity',
-      description: 'We build lasting relationships through transparency, honesty, and ethical practices.',
+      title: t('about.values.integrity.title'),
+      description: t('about.values.integrity.description'),
     },
     {
       icon: TrendingUp,
-      title: 'Innovation',
-      description: 'Constantly evolving with the latest technologies to deliver cutting-edge solutions.',
+      title: t('about.values.innovation.title'),
+      description: t('about.values.innovation.description'),
     },
   ];
 
@@ -42,10 +45,10 @@ export function About() {
           className="text-center mb-16"
         >
           <h2 id="about-heading" className="text-4xl md:text-5xl text-gray-900 mb-4">
-            Integrity-led product engineering
+            {t('about.heading')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Synerity partners with bureaus, banks, and fintechs to launch trust-centric digital platforms that comply, scale, and delight.
+            {t('about.description')}
           </p>
         </motion.div>
 
@@ -60,7 +63,7 @@ export function About() {
             <div className="relative rounded-2xl overflow-hidden shadow-xl">
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1737575655055-e3967cbefd03?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2UlMjB0ZWNobm9sb2d5JTIwdGVhbXxlbnwxfHx8fDE3NjI1ODI4MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Synerity Team"
+                alt={t('about.image.alt')}
                 className="w-full h-auto"
               />
             </div>
@@ -72,20 +75,21 @@ export function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-3xl text-gray-900 mb-6">Our Story</h3>
+            <h3 className="text-3xl text-gray-900 mb-6">{t('about.story.heading')}</h3>
             <p className="text-gray-600 mb-4 leading-relaxed">
-              Founded in Pune, India, Synerity Pvt. Ltd. was born from a simple belief:
-              <span className="font-medium text-gray-900"> technology built with integrity lasts longer.</span>
-              We marry decades of credit-domain expertise with modern engineering to help institutions modernize responsibly.
+              {t('about.story.paragraph1.prefix')}{' '}
+              <span className="font-medium text-gray-900">{t('about.story.paragraph1.highlight')}</span>{' '}
+              {t('about.story.paragraph1.suffix')}
             </p>
             <p className="text-gray-600 leading-relaxed">
-              Our name reflects our core philosophy—creating <span className="text-[#1A237E]">synergy</span> between innovation and regulation,
-              while upholding uncompromising <span className="text-[#1A237E]">integrity</span> in data stewardship, security, and delivery.
+              {t('about.story.paragraph2.prefix')}{' '}
+              <span className="text-[#1A237E]">{t('about.story.paragraph2.highlightSynergy')}</span>
+              {t('about.story.paragraph2.middle')}{' '}
+              <span className="text-[#1A237E]">{t('about.story.paragraph2.highlightIntegrity')}</span>{' '}
+              {t('about.story.paragraph2.suffix')}
             </p>
             <div className="mt-8 p-6 bg-gray-50 rounded-xl border-l-4 border-[#1A237E]">
-              <p className="text-gray-700 italic">
-                "Technology built with integrity lasts longer."
-              </p>
+              <p className="text-gray-700 italic">{t('about.story.quote')}</p>
             </div>
           </motion.div>
         </div>

@@ -1,53 +1,36 @@
 import { motion, useReducedMotion } from 'motion/react';
 import { Search, Palette, Code2, Rocket } from 'lucide-react';
+import { useTranslation } from '../i18n';
+import { trackCtaClick } from '../lib/analytics';
 
 export function Process() {
   const prefersReducedMotion = useReducedMotion();
+  const { t } = useTranslation();
 
   const steps = [
     {
       icon: Search,
-      title: 'Discovery',
-      description: 'We dive deep into your credit bureau vision, compliance landscape, and data estate.',
-      details: [
-        'Stakeholder & regulator interviews',
-        'Journey and data lineage mapping',
-        'Gap analysis vs. bureau mandates',
-        'Technical feasibility & ROI modelling',
-      ],
+      titleKey: 'process.steps.discovery.title',
+      descriptionKey: 'process.steps.discovery.description',
+      detailsKey: 'process.steps.discovery.details',
     },
     {
       icon: Palette,
-      title: 'Design',
-      description: 'Creating intuitive, transparent experiences that embed trust into every interaction.',
-      details: [
-        'Service blueprints & prototypes',
-        'Accessibility + localisation audits',
-        'Design system & microcopy guidelines',
-        'User testing with compliance overlays',
-      ],
+      titleKey: 'process.steps.design.title',
+      descriptionKey: 'process.steps.design.description',
+      detailsKey: 'process.steps.design.details',
     },
     {
       icon: Code2,
-      title: 'Development',
-      description: 'Building resilient, secure platforms with enterprise-grade governance.',
-      details: [
-        'Agile delivery with bureau SMEs',
-        'Automated security & quality gates',
-        'Performance and load benchmarking',
-        'Data privacy and lineage enforcement',
-      ],
+      titleKey: 'process.steps.development.title',
+      descriptionKey: 'process.steps.development.description',
+      detailsKey: 'process.steps.development.details',
     },
     {
       icon: Rocket,
-      title: 'Delivery',
-      description: 'Seamless launch and continuous optimisation to keep you compliant and competitive.',
-      details: [
-        'Production cutover & hypercare',
-        'Playbooks and audit-ready docs',
-        'Training for ops and support teams',
-        'Evolution roadmap & managed services',
-      ],
+      titleKey: 'process.steps.delivery.title',
+      descriptionKey: 'process.steps.delivery.description',
+      detailsKey: 'process.steps.delivery.details',
     },
   ];
 
@@ -67,10 +50,10 @@ export function Process() {
           className="text-center mb-16"
         >
           <h2 id="process-heading" className="text-4xl md:text-5xl text-gray-900 mb-4">
-            Our Process
+            {t('process.heading')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A proven methodology that delivers results
+            {t('process.description')}
           </p>
         </motion.div>
 
@@ -84,9 +67,12 @@ export function Process() {
             />
             
             <div className="grid grid-cols-4 gap-8">
-              {steps.map((step, index) => (
+              {steps.map((step, index) => {
+                const details = t(step.detailsKey).split('|').map((item) => item.trim()).filter(Boolean);
+
+                return (
                 <motion.div
-                  key={step.title}
+                  key={step.titleKey}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
@@ -100,7 +86,9 @@ export function Process() {
                     className="relative z-10 w-48 h-48 mx-auto mb-6 bg-gradient-to-br from-[#1A237E] to-[#3949AB] rounded-full flex flex-col items-center justify-center text-white shadow-xl"
                   >
                     <step.icon size={48} className="mb-2" />
-                    <span className="text-sm opacity-80">Step {index + 1}</span>
+                    <span className="text-sm opacity-80">
+                      {t('process.steps.label')} {index + 1}
+                    </span>
                   </motion.div>
 
                   {/* Content Card */}
@@ -109,12 +97,12 @@ export function Process() {
                     transition={{ duration: 0.35, ease: 'easeOut' }}
                     className="bg-white p-6 rounded-xl shadow-lg border border-gray-100"
                   >
-                    <h3 className="text-gray-900 mb-3 text-center">{step.title}</h3>
+                    <h3 className="text-gray-900 mb-3 text-center">{t(step.titleKey)}</h3>
                     <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                      {step.description}
+                      {t(step.descriptionKey)}
                     </p>
                     <ul className="space-y-2">
-                      {step.details.map((detail, idx) => (
+                      {details.map((detail, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-gray-600 text-sm">
                           <div className="w-1 h-1 bg-[#1A237E] rounded-full mt-1.5 flex-shrink-0" />
                           <span>{detail}</span>
@@ -139,16 +127,20 @@ export function Process() {
                     </motion.div>
                   )}
                 </motion.div>
-              ))}
+              );
+              })}
             </div>
           </div>
         </div>
 
         {/* Mobile View - Vertical Layout */}
         <div className="lg:hidden space-y-8">
-          {steps.map((step, index) => (
+          {steps.map((step, index) => {
+            const details = t(step.detailsKey).split('|').map((item) => item.trim()).filter(Boolean);
+
+            return (
             <motion.div
-              key={step.title}
+              key={step.titleKey}
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.25 }}
@@ -174,14 +166,16 @@ export function Process() {
                 <div className="flex-1 pb-6 sm:pb-8">
                   <div className="bg-white p-5 sm:p-6 rounded-xl shadow-lg border border-gray-100">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xs sm:text-sm text-[#1A237E] uppercase tracking-wide">Step {index + 1}</span>
-                      <h3 className="text-gray-900 text-base sm:text-lg">{step.title}</h3>
+                      <span className="text-xs sm:text-sm text-[#1A237E] uppercase tracking-wide">
+                        {t('process.steps.label')} {index + 1}
+                      </span>
+                      <h3 className="text-gray-900 text-base sm:text-lg">{t(step.titleKey)}</h3>
                     </div>
                     <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                      {step.description}
+                      {t(step.descriptionKey)}
                     </p>
                     <ul className="space-y-2">
-                      {step.details.map((detail, idx) => (
+                      {details.map((detail, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-gray-600 text-sm">
                           <div className="w-1 h-1 bg-[#1A237E] rounded-full mt-1.5 flex-shrink-0" />
                           <span>{detail}</span>
@@ -192,7 +186,8 @@ export function Process() {
                 </div>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Bottom CTA */}
@@ -204,15 +199,16 @@ export function Process() {
           className="mt-16 text-center"
         >
           <p className="text-xl text-gray-600 mb-6">
-            Every project is unique. We adapt our process to fit your specific needs.
+            {t('process.footer.description')}
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 230, damping: 20 }}
             className="bg-[#1A237E] text-white px-8 py-4 rounded-lg hover:bg-[#1A237E]/90 transition-colors"
+            onClick={() => trackCtaClick('process_footer', t('process.footer.cta'))}
           >
-            Let's Discuss Your Project
+            {t('process.footer.cta')}
           </motion.button>
         </motion.div>
       </div>

@@ -23,14 +23,17 @@ import {
   Triangle,
   type LucideIcon
 } from 'lucide-react';
+import { useTranslation } from '../i18n';
 
 export function TechStack() {
+  const { t } = useTranslation();
+
   const technologies: {
-    category: string;
+    categoryKey: string;
     techs: { name: string; icon: LucideIcon; color: string }[];
   }[] = [
     {
-      category: 'Frontend',
+      categoryKey: 'tech.categories.frontend.title',
       techs: [
         { name: 'React', icon: Code2, color: 'from-cyan-500 to-blue-500' },
         { name: 'Angular', icon: Triangle, color: 'from-red-500 to-pink-500' },
@@ -41,7 +44,7 @@ export function TechStack() {
       ],
     },
     {
-      category: 'Backend',
+      categoryKey: 'tech.categories.backend.title',
       techs: [
         { name: 'Spring Boot', icon: Server, color: 'from-green-600 to-green-700' },
         { name: 'Node.js', icon: Hexagon, color: 'from-green-500 to-green-600' },
@@ -52,7 +55,7 @@ export function TechStack() {
       ],
     },
     {
-      category: 'Database',
+      categoryKey: 'tech.categories.database.title',
       techs: [
         { name: 'PostgreSQL', icon: Database, color: 'from-blue-600 to-blue-700' },
         { name: 'MongoDB', icon: Database, color: 'from-green-600 to-green-700' },
@@ -63,7 +66,7 @@ export function TechStack() {
       ],
     },
     {
-      category: 'Cloud & DevOps',
+      categoryKey: 'tech.categories.cloud.title',
       techs: [
         { name: 'AWS', icon: Cloud, color: 'from-orange-500 to-orange-600' },
         { name: 'Azure', icon: Cloud, color: 'from-blue-500 to-blue-600' },
@@ -74,7 +77,7 @@ export function TechStack() {
       ],
     },
     {
-      category: 'Tools',
+      categoryKey: 'tech.categories.tools.title',
       techs: [
         { name: 'Git', icon: GitBranch, color: 'from-orange-600 to-red-600' },
         { name: 'Jira', icon: BarChart3, color: 'from-blue-600 to-blue-700' },
@@ -102,10 +105,10 @@ export function TechStack() {
           className="text-center mb-16"
         >
           <h2 id="techstack-heading" className="text-4xl md:text-5xl text-gray-900 mb-4">
-            Technology Stack
+            {t('tech.heading')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our stack is built for speed, scalability, and reliability
+            {t('tech.description')}
           </p>
         </motion.div>
 
@@ -113,14 +116,14 @@ export function TechStack() {
         <div className="space-y-12">
           {technologies.map((category, categoryIndex) => (
             <motion.div
-              key={category.category}
+              key={category.categoryKey}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: categoryIndex * 0.1 }}
             >
               <h3 className="text-2xl text-gray-900 mb-6 text-center md:text-left">
-                {category.category}
+                {t(category.categoryKey)}
               </h3>
               
               <motion.ul role="list" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -162,10 +165,10 @@ export function TechStack() {
           className="mt-20 grid md:grid-cols-4 gap-8"
         >
           {[
-            { number: '50+', label: 'Technologies' },
-            { number: '100+', label: 'Projects Delivered' },
-            { number: '25+', label: 'Expert Developers' },
-            { number: '99%', label: 'Client Satisfaction' },
+            { number: '50+', label: t('tech.stats.technologies') },
+            { number: '100+', label: t('tech.stats.projects') },
+            { number: '25+', label: t('tech.stats.experts') },
+            { number: '99%', label: t('tech.stats.satisfaction') },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -197,33 +200,33 @@ export function TechStack() {
           transition={{ duration: 0.6 }}
           className="mt-16 bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-200"
         >
-          <h3 className="text-3xl text-gray-900 mb-8 text-center">Why Our Technology Stack?</h3>
+          <h3 className="text-3xl text-gray-900 mb-8 text-center">{t('tech.why.heading')}</h3>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-[#1A237E]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Zap className="text-[#1A237E]" size={32} />
               </div>
-              <h4 className="text-gray-900 mb-2">High Performance</h4>
+              <h4 className="text-gray-900 mb-2">{t('tech.why.performance.title')}</h4>
               <p className="text-gray-600 text-sm">
-                Optimized for speed and efficiency to deliver the best user experience
+                {t('tech.why.performance.description')}
               </p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-[#1A237E]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BarChart3 className="text-[#1A237E]" size={32} />
               </div>
-              <h4 className="text-gray-900 mb-2">Scalability</h4>
+              <h4 className="text-gray-900 mb-2">{t('tech.why.scalability.title')}</h4>
               <p className="text-gray-600 text-sm">
-                Built to grow with your business from startup to enterprise
+                {t('tech.why.scalability.description')}
               </p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-[#1A237E]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Wrench className="text-[#1A237E]" size={32} />
               </div>
-              <h4 className="text-gray-900 mb-2">Security First</h4>
+              <h4 className="text-gray-900 mb-2">{t('tech.why.security.title')}</h4>
               <p className="text-gray-600 text-sm">
-                Industry-standard security practices and regular updates
+                {t('tech.why.security.description')}
               </p>
             </div>
           </div>

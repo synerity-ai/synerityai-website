@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useTranslation } from '../i18n';
+import { trackNavigation } from '../lib/analytics';
 
 interface NavigationProps {
   activeSection: string;
@@ -10,6 +12,7 @@ interface NavigationProps {
 export function Navigation({ activeSection, onNavigate }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,14 +23,19 @@ export function Navigation({ activeSection, onNavigate }: NavigationProps) {
   }, []);
 
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About Us' },
-    { id: 'services', label: 'Services' },
-    { id: 'process', label: 'Process' },
-    { id: 'tech', label: 'Tech Stack' },
-    { id: 'portfolio', label: 'Portfolio' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'home', label: t('navigation.items.home') },
+    { id: 'about', label: t('navigation.items.about') },
+    { id: 'services', label: t('navigation.items.services') },
+    { id: 'process', label: t('navigation.items.process') },
+    { id: 'tech', label: t('navigation.items.tech') },
+    { id: 'portfolio', label: t('navigation.items.portfolio') },
+    { id: 'contact', label: t('navigation.items.contact') },
   ];
+
+  const handleNavigate = (location: string, target: string) => {
+    trackNavigation(location, target);
+    onNavigate(target);
+  };
 
   return (
     <motion.nav
@@ -45,14 +53,14 @@ export function Navigation({ activeSection, onNavigate }: NavigationProps) {
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-3 cursor-pointer"
-            onClick={() => onNavigate('home')}
+            onClick={() => handleNavigate('header_logo', 'home')}
           >
             <div className="w-10 h-10 bg-gradient-to-br from-[#1A237E] to-[#3949AB] rounded-lg flex items-center justify-center">
               <span className="text-white">S</span>
             </div>
             <div>
-              <h1 className="text-[#1A237E]">Synerity</h1>
-              <p className="text-xs text-gray-600">Pvt. Ltd.</p>
+              <h1 className="text-[#1A237E]">{t('navigation.brand.name')}</h1>
+              <p className="text-xs text-gray-600">{t('navigation.brand.suffix')}</p>
             </div>
           </motion.div>
 
@@ -61,7 +69,7 @@ export function Navigation({ activeSection, onNavigate }: NavigationProps) {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => onNavigate(item.id)}
+                onClick={() => handleNavigate('header', item.id)}
                 className={`relative text-sm transition-colors ${
                   activeSection === item.id
                     ? 'text-[#1A237E]'
@@ -83,7 +91,7 @@ export function Navigation({ activeSection, onNavigate }: NavigationProps) {
           <button
             className="md:hidden p-2 text-[#1A237E]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-label={isMobileMenuOpen ? t('navigation.mobile.close') : t('navigation.mobile.open')}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-primary-navigation"
           >
@@ -107,7 +115,7 @@ export function Navigation({ activeSection, onNavigate }: NavigationProps) {
                 <button
                   key={item.id}
                   onClick={() => {
-                    onNavigate(item.id);
+                  handleNavigate('mobile_menu', item.id);
                     setIsMobileMenuOpen(false);
                   }}
                   className={`block w-full text-left py-3 px-4 rounded-lg transition-colors ${
