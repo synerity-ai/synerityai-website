@@ -64,11 +64,6 @@ services.cards.consulting.title,Technology Consulting
 services.cards.talent.title,Managed Engineering Teams
 "services.cards.talent.description","Scale with dedicated squads that plug into your roadmap and delivery rituals."
 "services.cards.talent.features","Cross-functional product squads|Flexible engagement models|Transparent delivery cadence|Quality and release governance"
-services.cards.learnMore,Talk to us
-services.cta.heading,Ready to accelerate your roadmap?
-"services.cta.description","Partner with Synerity to design, build, and scale your next release."
-services.cta.primary,Speak with our experts
-services.cta.secondary,Explore recent wins
 process.heading,Our Process
 "process.description","A proven methodology that keeps teams aligned, shipping, and learning"
 process.steps.label,Step

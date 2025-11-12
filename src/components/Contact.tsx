@@ -309,9 +309,9 @@ export function Contact() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="mt-16 max-w-4xl mx-auto"
         >
-          <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 md:p-12 text-white text-center">
-            <h3 className="text-3xl mb-4">{t('contact.hire.heading')}</h3>
-            <p className="text-xl mb-8 text-blue-100">
+          <div className="bg-[#1A237E] rounded-2xl p-8 md:p-12 text-white text-center shadow-[0_26px_52px_-28px_rgba(17,27,72,0.55)] border border-[#121B52]/60">
+            <h3 className="text-3xl mb-4 font-semibold tracking-tight">{t('contact.hire.heading')}</h3>
+            <p className="text-xl mb-8 text-indigo-100">
               {t('contact.hire.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -319,7 +319,7 @@ export function Contact() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: 'spring', stiffness: 230, damping: 20 }}
-                className="bg-white text-purple-600 px-8 py-4 rounded-lg hover:shadow-xl transition-all"
+                className="bg-white text-[#1A237E] px-8 py-4 rounded-lg hover:shadow-xl transition-all font-medium"
                 href={composeMailto(
                   'Hire Developers Inquiry',
                   'Hi Synerity team,\n\nI am looking to hire developers and would like to discuss details with you.\n\nThanks!'
@@ -332,7 +332,7 @@ export function Contact() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: 'spring', stiffness: 230, damping: 20 }}
-                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-all"
+                className="bg-transparent border border-white/80 text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-all font-medium"
                 onClick={handleHireLearnMoreClick}
               >
                 {t('contact.hire.secondary')}

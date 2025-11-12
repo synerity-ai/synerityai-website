@@ -121,14 +121,7 @@
         "title": "Managed Engineering Teams",
         "description": "Scale with dedicated squads that plug into your roadmap and delivery rituals.",
         "features": "Cross-functional product squads|Flexible engagement models|Transparent delivery cadence|Quality and release governance"
-      },
-      "learnMore": "Talk to us"
-    },
-    "cta": {
-      "heading": "Ready to accelerate your roadmap?",
-      "description": "Partner with Synerity to design, build, and scale your next release.",
-      "primary": "Speak with our experts",
-      "secondary": "Explore recent wins"
+      }
     }
   },
   "process": {
