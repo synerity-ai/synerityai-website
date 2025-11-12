@@ -42,61 +42,61 @@ export function TechStack() {
 
   const technologies: {
     categoryKey: string;
-    techs: { name: string; icon: IconType; color: string }[];
+    techs: { name: string; icon: IconType }[];
   }[] = [
     {
       categoryKey: 'tech.categories.frontend.title',
       techs: [
-        { name: 'React', icon: FaReact, color: 'from-cyan-500 to-blue-500' },
-        { name: 'Angular', icon: FaAngular, color: 'from-red-500 to-pink-500' },
-        { name: 'Next.js', icon: SiNextdotjs, color: 'from-gray-800 to-gray-900' },
-        { name: 'TypeScript', icon: SiTypescript, color: 'from-blue-600 to-blue-700' },
-        { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'from-teal-500 to-cyan-500' },
-        { name: 'Storybook', icon: SiStorybook, color: 'from-purple-500 to-pink-500' },
+        { name: 'React', icon: FaReact },
+        { name: 'Angular', icon: FaAngular },
+        { name: 'Next.js', icon: SiNextdotjs },
+        { name: 'TypeScript', icon: SiTypescript },
+        { name: 'Tailwind CSS', icon: SiTailwindcss },
+        { name: 'Storybook', icon: SiStorybook },
       ],
     },
     {
       categoryKey: 'tech.categories.backend.title',
       techs: [
-        { name: 'Spring Boot', icon: SiSpringboot, color: 'from-green-600 to-green-700' },
-        { name: 'Node.js', icon: FaNodeJs, color: 'from-green-500 to-green-600' },
-        { name: 'Quarkus', icon: SiQuarkus, color: 'from-blue-500 to-indigo-500' },
-        { name: 'GraphQL', icon: SiGraphql, color: 'from-pink-500 to-purple-500' },
-        { name: 'Python', icon: FaPython, color: 'from-blue-500 to-yellow-500' },
-        { name: 'Java', icon: FaJava, color: 'from-orange-600 to-red-600' },
+        { name: 'Spring Boot', icon: SiSpringboot },
+        { name: 'Node.js', icon: FaNodeJs },
+        { name: 'Quarkus', icon: SiQuarkus },
+        { name: 'GraphQL', icon: SiGraphql },
+        { name: 'Python', icon: FaPython },
+        { name: 'Java', icon: FaJava },
       ],
     },
     {
       categoryKey: 'tech.categories.database.title',
       techs: [
-        { name: 'PostgreSQL', icon: SiPostgresql, color: 'from-blue-600 to-blue-700' },
-        { name: 'MongoDB', icon: SiMongodb, color: 'from-green-600 to-green-700' },
-        { name: 'Oracle', icon: SiOracle, color: 'from-red-600 to-red-700' },
-        { name: 'Redis', icon: SiRedis, color: 'from-red-500 to-orange-500' },
-        { name: 'DynamoDB', icon: SiAmazondynamodb, color: 'from-blue-600 to-indigo-600' },
-        { name: 'Elasticsearch', icon: SiElasticsearch, color: 'from-yellow-500 to-orange-500' },
+        { name: 'PostgreSQL', icon: SiPostgresql },
+        { name: 'MongoDB', icon: SiMongodb },
+        { name: 'Oracle', icon: SiOracle },
+        { name: 'Redis', icon: SiRedis },
+        { name: 'DynamoDB', icon: SiAmazondynamodb },
+        { name: 'Elasticsearch', icon: SiElasticsearch },
       ],
     },
     {
       categoryKey: 'tech.categories.cloud.title',
       techs: [
-        { name: 'AWS', icon: FaAws, color: 'from-orange-500 to-orange-600' },
-        { name: 'Azure', icon: FaMicrosoft, color: 'from-blue-500 to-blue-600' },
-        { name: 'Docker', icon: FaDocker, color: 'from-blue-600 to-blue-700' },
-        { name: 'Kubernetes', icon: SiKubernetes, color: 'from-blue-500 to-indigo-500' },
-        { name: 'Terraform', icon: SiTerraform, color: 'from-purple-600 to-purple-700' },
-        { name: 'Jenkins', icon: SiJenkins, color: 'from-red-600 to-red-700' },
+        { name: 'AWS', icon: FaAws },
+        { name: 'Azure', icon: FaMicrosoft },
+        { name: 'Docker', icon: FaDocker },
+        { name: 'Kubernetes', icon: SiKubernetes },
+        { name: 'Terraform', icon: SiTerraform },
+        { name: 'Jenkins', icon: SiJenkins },
       ],
     },
     {
       categoryKey: 'tech.categories.tools.title',
       techs: [
-        { name: 'Git', icon: FaGitAlt, color: 'from-orange-600 to-red-600' },
-        { name: 'Jira', icon: SiJira, color: 'from-blue-600 to-blue-700' },
-        { name: 'Figma', icon: FaFigma, color: 'from-purple-500 to-pink-500' },
-        { name: 'Postman', icon: SiPostman, color: 'from-orange-500 to-orange-600' },
-        { name: 'VS Code', icon: FaCode, color: 'from-blue-600 to-cyan-600' },
-        { name: 'Notion', icon: SiNotion, color: 'from-purple-600 to-pink-600' },
+        { name: 'Git', icon: FaGitAlt },
+        { name: 'Jira', icon: SiJira },
+        { name: 'Figma', icon: FaFigma },
+        { name: 'Postman', icon: SiPostman },
+        { name: 'VS Code', icon: FaCode },
+        { name: 'Notion', icon: SiNotion },
       ],
     },
   ];
@@ -147,20 +147,14 @@ export function TechStack() {
                     viewport={{ once: true }}
                     transition={{ delay: categoryIndex * 0.1 + techIndex * 0.05 }}
                     whileHover={{ scale: 1.05, y: -5 }}
-                    className="group bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 relative overflow-hidden"
+                  className="group bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 relative overflow-hidden"
                   >
-                    {/* Animated gradient background on hover */}
-                    <motion.div
-                      className={`absolute inset-0 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
-                      aria-hidden="true"
-                    />
-                    
-                    <div className="text-center relative z-10">
-                      <div className={`w-12 h-12 mx-auto mb-3 bg-gradient-to-br ${tech.color} rounded-lg flex items-center justify-center`}>
-                        <tech.icon className="text-white" size={24} />
-                      </div>
-                      <p className="text-gray-700 text-sm">{tech.name}</p>
+                  <div className="text-center relative z-10">
+                    <div className="w-12 h-12 mx-auto mb-3 rounded-lg flex items-center justify-center bg-[#1A237E] transition-colors duration-300 group-hover:bg-[#3949AB]">
+                      <tech.icon size={24} color="#FFFFFF" />
                     </div>
+                    <p className="text-gray-700 text-sm">{tech.name}</p>
+                  </div>
                   </motion.li>
                 ))}
               </motion.ul>
