@@ -1,0 +1,157 @@
+{
+    "ETag": "EI4DNNPP6G17E",
+    "Distribution": {
+        "Id": "E1L34XSF4GSNIH",
+        "ARN": "arn:aws:cloudfront::717039515744:distribution/E1L34XSF4GSNIH",
+        "Status": "Deployed",
+        "LastModifiedTime": "2025-11-15T13:09:48.804000+00:00",
+        "InProgressInvalidationBatches": 0,
+        "DomainName": "dnfc15iereowl.cloudfront.net",
+        "ActiveTrustedSigners": {
+            "Enabled": false,
+            "Quantity": 0
+        },
+        "ActiveTrustedKeyGroups": {
+            "Enabled": false,
+            "Quantity": 0
+        },
+        "DistributionConfig": {
+            "CallerReference": "51e36fee-ba06-40e6-9c3e-0e52595d650d",
+            "Aliases": {
+                "Quantity": 2,
+                "Items": [
+                    "synerityai.com",
+                    "www.synerityai.com"
+                ]
+            },
+            "DefaultRootObject": "",
+            "Origins": {
+                "Quantity": 2,
+                "Items": [
+                    {
+                        "Id": "www.synerityai.com.s3.ap-south-1.amazonaws.com",
+                        "DomainName": "www.synerityai.com.s3.ap-south-1.amazonaws.com",
+                        "OriginPath": "",
+                        "CustomHeaders": {
+                            "Quantity": 0
+                        },
+                        "S3OriginConfig": {
+                            "OriginAccessIdentity": "",
+                            "OriginReadTimeout": 30
+                        },
+                        "ConnectionAttempts": 3,
+                        "ConnectionTimeout": 10,
+                        "OriginShield": {
+                            "Enabled": false
+                        },
+                        "OriginAccessControlId": "E2WXOIBNOQE080"
+                    },
+                    {
+                        "Id": "www.synerityai.com.s3.ap-south-1.amazonaws.com-mi0aasa8wtz",
+                        "DomainName": "www.synerityai.com.s3.ap-south-1.amazonaws.com",
+                        "OriginPath": "",
+                        "CustomHeaders": {
+                            "Quantity": 0
+                        },
+                        "S3OriginConfig": {
+                            "OriginAccessIdentity": "",
+                            "OriginReadTimeout": 30
+                        },
+                        "ConnectionAttempts": 3,
+                        "ConnectionTimeout": 10,
+                        "OriginShield": {
+                            "Enabled": false
+                        },
+                        "OriginAccessControlId": "E2WXOIBNOQE080"
+                    }
+                ]
+            },
+            "OriginGroups": {
+                "Quantity": 0
+            },
+            "DefaultCacheBehavior": {
+                "TargetOriginId": "www.synerityai.com.s3.ap-south-1.amazonaws.com-mi0aasa8wtz",
+                "TrustedSigners": {
+                    "Enabled": false,
+                    "Quantity": 0
+                },
+                "TrustedKeyGroups": {
+                    "Enabled": false,
+                    "Quantity": 0
+                },
+                "ViewerProtocolPolicy": "redirect-to-https",
+                "AllowedMethods": {
+                    "Quantity": 2,
+                    "Items": [
+                        "HEAD",
+                        "GET"
+                    ],
+                    "CachedMethods": {
+                        "Quantity": 2,
+                        "Items": [
+                            "HEAD",
+                            "GET"
+                        ]
+                    }
+                },
+                "SmoothStreaming": false,
+                "Compress": true,
+                "LambdaFunctionAssociations": {
+                    "Quantity": 0
+                },
+                "FunctionAssociations": {
+                    "Quantity": 0
+                },
+                "FieldLevelEncryptionId": "",
+                "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                "GrpcConfig": {
+                    "Enabled": false
+                }
+            },
+            "CacheBehaviors": {
+                "Quantity": 0
+            },
+            "CustomErrorResponses": {
+                "Quantity": 0
+            },
+            "Comment": "Synerity website distribution",
+            "Logging": {
+                "Enabled": false,
+                "IncludeCookies": false,
+                "Bucket": "",
+                "Prefix": ""
+            },
+            "PriceClass": "PriceClass_All",
+            "Enabled": true,
+            "ViewerCertificate": {
+                "CloudFrontDefaultCertificate": false,
+                "ACMCertificateArn": "arn:aws:acm:us-east-1:717039515744:certificate/b6cf290e-5132-4702-aba5-a314ccda084c",
+                "SSLSupportMethod": "sni-only",
+                "MinimumProtocolVersion": "TLSv1.2_2021",
+                "Certificate": "arn:aws:acm:us-east-1:717039515744:certificate/b6cf290e-5132-4702-aba5-a314ccda084c",
+                "CertificateSource": "acm"
+            },
+            "Restrictions": {
+                "GeoRestriction": {
+                    "RestrictionType": "none",
+                    "Quantity": 0
+                }
+            },
+            "WebACLId": "arn:aws:wafv2:us-east-1:717039515744:global/webacl/CreatedByCloudFront-eb5e4830/30485a48-657d-47c3-a3e7-d2b757b5f4a8",
+            "HttpVersion": "http2",
+            "IsIPV6Enabled": true,
+            "ContinuousDeploymentPolicyId": "",
+            "Staging": false
+        },
+        "AliasICPRecordals": [
+            {
+                "CNAME": "synerityai.com",
+                "ICPRecordalStatus": "APPROVED"
+            },
+            {
+                "CNAME": "www.synerityai.com",
+                "ICPRecordalStatus": "APPROVED"
+            }
+        ]
+    }
+}
